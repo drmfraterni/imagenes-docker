@@ -1,27 +1,25 @@
-FROM centos:7
+FROM nginx
 
-LABEL version=1.0
-LABEL description="Esto es una imagen de prueba"
-LABEL vendor="David"
+RUN usseradd galaprueba
 
-RUN yum install httpd -y
+COPY bootstrapPage /usr/share/nginx/html
 
-COPY prueba /var/www/html
+ENV archivo docker
 
-RUN echo "$(whoami)" > /var/www/html/user1.html
+WORKDIR /usr/share/nginx/html
 
-RUN useradd galapruebas
+EXPOSE 90
 
-USER galapruebas
+LABEL version=1
 
-RUN echo "$(whoami)" > /tmp/user2.html
+USER galaprueba
+
+RUN echo "yo soy $(whoami)" > /tmp/yo.html
 
 USER root
 
-RUN cp /tmp/user2.html  /var/www/html/user2.html
+RUN cp /temp/yo.html /user/share/nginx/html/docker.html
 
-COPY run.sh /run.sh
+VOLUME /var/log/nginx
 
-CMD sh /run.sh
-
-
+CMD nginx -g 'daemon off;'
