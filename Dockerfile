@@ -1,6 +1,6 @@
 FROM nginx
 
-RUN usseradd galaprueba
+RUN useradd galaprueba
 
 COPY bootstrapPage /usr/share/nginx/html
 
@@ -18,7 +18,7 @@ RUN echo "yo soy $(whoami)" > /tmp/yo.html
 
 USER root
 
-RUN cp /temp/yo.html /user/share/nginx/html/docker.html
+RUN cp /tmp/yo.html /usr/share/nginx/html/docker.html
 
 VOLUME /var/log/nginx
 
