@@ -1,0 +1,2 @@
+Crear una imagen desde https://hub.docker.com/sotobotero/udemy-devops/tags?page=1&ordering=last_update
+copiar docker pull sotobotero/udemy-devops:0.0.2
