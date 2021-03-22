@@ -16,6 +16,15 @@ Ejemplo: $ docker build -t apache-centos:apache-pruebas. // recuerda el punto de
 Ejemplo. $docker run -d --name apache -p 8080:80 apache-centos:apache-pruebas
 
 ALGUNOS COMANDOS DE DOCKER
+$ docker image ls  //imagenes
+$ docker ps -a // contenedores
+$ docker start [nombre]
+$ docker stop [nombre]
+$ docker logs [contenedor]
+$ docker rm -fv [nombre o id]
+$ docker image rm [nombre de la imagen]
+
+Parar unos servicios en marcha crtl+C 
 
 Ver imagenes y borrar imágenes
 
