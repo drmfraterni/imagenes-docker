@@ -47,7 +47,12 @@ Comprobamos que todo funciona correctamente:
 
 Drush --version
 
+**********************************
+comandos linux-ubuntu
+**********************************
 
+rmdir /mi-directorio
+rm -rfv /mi-directorio
 
 
 
