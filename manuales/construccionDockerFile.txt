@@ -21,8 +21,19 @@ $ docker ps -a // contenedores
 $ docker start [nombre]
 $ docker stop [nombre]
 $ docker logs [contenedor]
+#borrar un contenedor
 $ docker rm -fv [nombre o id]
+#borrar una imagen o varias
 $ docker image rm [nombre de la imagen]
+$ docker rmi [nombre de la imagen]
+# trabajo con redes
+$ docker network ls  - inspeccionar todas las redes del docker
+$ docker network inspect bridge
+$ docker network inspect host
+# crear una nueva red
+$ docker network create test
+# borrar una red
+$ docker network rm mi_red
 
 Parar unos servicios en marcha crtl+C 
 
