@@ -162,6 +162,47 @@ Options FollowSymlinks
 $ sudo systemctl restart apache2
 
 
+********************************
+	Gestión mysql
+********************************
 
+# CREAR UN NUEVO USUARIO
+
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+
+FLUSH PRIVILEGES;
+
+
+# OTORGAR PERMISOS DE USUARIO
+
+ALL PRIVILEGES: Como vimos antes, esto le otorgaría a un usuario de MySQL acceso completo a una base de datos designada (o si no se selecciona ninguna base de datos, acceso global a todo el sistema).
+CREATE: Permite crear nuevas tablas o bases de datos.
+DROP: Permite eliminar tablas o bases de datos.
+DELETE: Permite eliminar filas de las tablas.
+INSERT: Permite insertar filas en las tablas.
+SELECT: Les permite usar el comando SELECT para leer las bases de datos.
+UPDATE: Permite actualizar las filas de las tablas.
+GRANT OPTION: Permite otorgar o eliminar privilegios de otros usuarios.
+
+# permisos a nivel de base de datos y de tablas
+GRANT type_of_permission ON database_name.table_name TO 'username'@'localhost';
+
+# revocar permisos a un usuario
+
+SHOW GRANTS FOR 'username'@'localhost';
+
+# Eliminar un usuario completo
+
+DROP USER 'username'@'localhost';
+
+# VER USUARIOS Y PERMISOS 
+
+SELECT User, Host FROM mysql.user
+
+Para listar los permisos podemos utilizar el comando:
+
+SHOW GRANTS;
+SHOW GRANTS FOR 'Usuario';
 
 
