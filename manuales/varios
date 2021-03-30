@@ -140,3 +140,28 @@ $ drush migrate-import bz_usuarios
 $ drush migrate-import bz_productos --update
 $ drush ms -> listar todas la migraciones
 
+*******************************************
+	URLs limpias para Drupal 8
+*******************************************
+
+# activamos el módulo rewrite
+$ cd /etc/apache2
+$ sudo a2enmod rewrite
+$ sudo systemctl restart apache2
+
+# vamos a la configuración de apache2
+
+$ sudo nano apache2.conf
+y se agrega al final del archivo el siguiente código:
+<Directory /var/www/html/NombreProyectoDrupal>
+RewriteEngine on
+AllowOverride All
+Options FollowSymlinks
+</Directory>
+
+$ sudo systemctl restart apache2
+
+
+
+
+
