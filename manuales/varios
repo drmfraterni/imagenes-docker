@@ -47,6 +47,29 @@ Comprobamos que todo funciona correctamente:
 
 Drush --version
 
+*************************************
+   Instalar drupal con composer
+*************************************
+https://www.drupal.org/docs/develop/using-composer/starting-a-site-using-drupal-composer-project-templates
+
+# instalar antes varias librerias:
+$ sudo apt-get install php-curl
+$ sudo apt-get install php-gd
+$ sudo nano /etc/php/7.4/apache2/php.ini
+// extensiones ext-dom  y phpxml
+sudo apt-get update
+sudo apt install php-xml
+sudo apt-get install php-mbstring
+
+opcache.enable=1
+
+# instalar una versión en concreto:
+$ composer create-project 'drupal/recommended-project:^8.9' drupal8 --stability dev --no-interaction
+
+# instalar ultima versión de un drupal
+$ composer create-project drupal-composer/drupal-project:8.x-dev nombre-del-proyecto —stability dev —no-interaction
+
+
 **********************************
 comandos linux-ubuntu
 **********************************
