@@ -1,0 +1,184 @@
+Actualizar el CORE de drupal con drush.
+https://www.drupal.org/docs/8/update/update-core-via-drush
+Explicación del modelo MVC - MODELO, VISTA, CONTROLADOR.
+Ejemplo PHP + POO + MVC
+https://victorroblesweb.es/2014/07/15/ejemplo-php-poo-mvc/
+
+MVC (Modelo Vista Controlador) en PHP nativo
+https://victorroblesweb.es/2013/11/18/tutorial-mvc-en-php-nativo/
+
+INSTALAR SYMFONY
+vamos al directorio web.
+cd c:/xampp/htdocs/master-php/
+$ composer create-project symfony/website-skeleton aprendiendo-symfony
+INSTALAR LAS LIBRERÍAS DE APACHE PARA EL SYMFONY
+$ composer require symfony/apache-pack
+
+
+INSTALAR UN VIRTUAL HOST PARA SYMFONY Y PARA LARAVEL
+# SYMFONY
+<VirtualHost symfony.local:80>
+    ServerAdmin symfony.local
+    DocumentRoot "C:/xampp/htdocs/master-php/aprendiendo-symfony/public"
+    <Directory "C:/xampp/htdocs/master-php/aprendiendo-symfony">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+	Require all granted
+    </Directory>
+</VirtualHost>
+
+# LARAVEL
+<VirtualHost laravel.local:80>
+    ServerAdmin laravel.local
+    DocumentRoot "C:/xampp/htdocs/laravel/public"
+    <Directory "C:/xampp/htdocs/laravel">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+	Require all granted
+    </Directory>
+</VirtualHost>
+
+IR AL ARCHIVO HOST DE WINDOWS PARA HABILITAR LAS DIRECCIONES
+
+ABRIR CONSOLA DE SYMFONY CON CYGDRIVE
+
+Esto es muy parecido al drush en drupal
+
+1) Tenemos que entrar dentro del directorio con la consola donde tenemos symfony en nuestro caso:
+	/cygdrive/c/xampp/htdocs/master-php/aprendiendo-symfony
+
+2) A partir de aquí podemos utilizar los comandos de doctrine:
+	$ php bin/console <comando>
+
+$php bin/console list  //listamos todas las funcionalidades que tiene
+$php bin/console help  // nos aparece la ayuda de la consola
+$php bin/console make:twig-extension MiFiltro  // creamos una extensión de Twig para trabajar con ello
+$php bin/console debug:router //listar las rutas que tenemos
+
+CONFIGURACIÓN DE LA BASE DE DATOIS EN SYMFONY CON DOCTRINE:
+
+Configuracion de la base de datos en symfony con Doctrine
+1) Fichero de configuración de la base de datos que lo tenemos en fichero.env
+	Nos vamos al fichero.env para configurar la base de datos:
+		En la linea 28 tenemos la configuración
+		DATABASE_URL=mysql://root@127.0.0.1:3306/aprendiendo-sf4?serverVersion=5.7
+2) Creación de la base de dato desde la consola de doctrine.
+	$ php bin/console doctrine:database:create
+		Nos coge la configuración del archivo.env automáticamente.
+
+
+CREAR LAS ENTIDADES COMENZANDO POR LA BASE DE DATOS
+
+En el gestor de base de datos creo una table de datos por ejemplo animales con 4 campos id, tipo, color, raza.
+
+Luego nos vamos a la consola y ejecutamos el siguiente comando:
+	$ php bin/console doctrine:mapping:convert --from-database yml ./src/Entity
+Nos crea la entidad dentro de la carpeta Entity.
+Luego nos vamos a la consola y ejecutamos el siguiente comando:
+	$ php bin/console doctrine:mapping:import App\\Entity yml --path=src/Entity
+Ahora tenemos que introducir el siguiente comando para que me genere la clase de la base de datos
+	$ php bin/console doctrine:mapping:import App\\Entity annotation --path=src/Entity
+
+Si nos vamos a la clase Aminales.php que ha generado para la base de datos, vemos que tenemos creadas todas los campos de la base de datos como variables privadas pero no tenemos sus GETTER ni sus SETTER para ello tenemos que ejecutar los siguientes comandos en la consola.
+
+	$ php bin/console make:entity --regenerate App
+
+CREAR LAS ENTIDADES COMENZANDO POR LA ENTIDAS PARA POSTERIORMENTE PASARLO A LA BASE DE DATOS.
+
+1) Vamos a la consola y ejecutamos el siguiente comando
+	$ php bin/console make:entity Usuario
+2) Vamos a la entidad creada /src/Entity/Usuario.php e introducimos los campos que van a ir en la base de datos, junto con sus anotaciones:
+
+private $id;
+    
+    /**
+     * @ORM\Column(type="string, length=255")
+     */    
+    private $nombre;    
+    /**
+     * @ORM\Column(type="string, length=255")
+     */    
+    private $apellidos;    
+    /**
+     * @ORM\Column(type="string, length=255")
+     */    
+    private $email;    
+    /**
+     * @ORM\Column(type="string, length=255")
+     */    
+    private $password;    
+    /**
+     * @ORM\Column(type="string, length=255")
+     */
+
+3) vamos a la consola y regeneramos la entidad para que nos coja los setters y los getters:
+	$ php bin/console make:entity --regenerate App
+
+4) Vamos a comparar las entidades que tenemos con lo que hay en la base de datos y me genera las diferencias, para ello vamos a ejecutar la siguiente sentencia:
+	$ php bin/console doctrine:migrations:diff
+5) Ahora tenemos que ejecutar los cambios en la base de datos ejecutando la siguiente sentencia:
+	$ php bin/console doctrine:migrations:migrate
+
+
+CREAR ENTIDAD DESDE LA BASE DE DATOS
+
+1) Creamos la tabla Animales en la base de datos con los 4 campos anteriores.
+2) Ejecutamos los comandos para crear la Entidad:
+	$ php bin/console doctrine:mapping:import App\\Entity annotation --path=src/Entity
+3) Ahora generamos los setters y los getters de las entidades a través del comandos:
+	$ php bin/console make:entity --regenerate App	
+4) Ahora generamos una migración a través del comando:
+	$ php bin/console doctrine:migrations:diff
+5) Si modificamos la Entidad vemos la diferencia de version
+	$ php bin/console doctrine:migrations:diff
+6) Para ejecutar la diferencia en la base de datos realizamos a través del comando
+	$ php bin/console doctrine:migrations:migrate
+
+COMANDOS PARA EJECUTAR DESDE DOCTRINE UNA CONSULTA A LA BASE DE DATOS
+
+Para consultar la base de datos via doctrine tenemos que hacer con el siguiente comando:
+	$ php bin/console doctrine:query:sql "SELECT * FROM animales"
+	RESULTADO:
+	$ php bin/console doctrine:query:sql "SELECT * FROM animales"
+
+C:\xampp\htdocs\master-php\aprendiendo-symfony\vendor\doctrine\dbal\lib\Doctrine\DBAL\Tools\Dumper.php:71:
+array (size=3)
+  0 =>
+    array (size=4)
+      'id' => string '1' (length=1)
+      'tipo' => string 'Avestruz' (length=8)
+      'color' => string 'verde' (length=5)
+      'raza' => string 'africana' (length=8)
+  1 =>
+    array (size=4)
+      'id' => string '2' (length=1)
+      'tipo' => string 'Avestruz' (length=8)
+      'color' => string 'verde' (length=5)
+      'raza' => string 'africana' (length=8)
+  2 =>
+    array (size=4)
+      'id' => string '3' (length=1)
+      'tipo' => string 'Avestruz' (length=8)
+      'color' => string 'verde' (length=5)
+      'raza' => string 'africana' (length=8)
+
+
+COMANDO FIND.
+
+// Cargar REPOSITORIO se tiene que hacer con estos métodos        
+$animal_repo = $this->getDoctrine()->getRepository(Animal::class);
+        
+//Consulta al repositorio pasándole un parámetro.
+$animal = $animal_repo->find($id);
+// Vemos todos los registros
+$animales = $animal_repo->findAll();
+// Nos busca un registro que cumpla una condición o varias.
+$animal = $animal_repo->findOneBy([
+            'tipo' => 'vaca',
+        ]);
+        
+        var_dump($animal);
+
+ 
+
+

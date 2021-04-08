@@ -123,18 +123,44 @@ ACTIVAR MODO DESARROLLO DE DRUPAL EN LOCAL. https://www.drupal.org/docs/8/themin
 
 Activar el archivo setting.local.php
 
-Renombrar /sites/settings.example.local.php -> /sites/default/settings.local.php Descomentar la siguiente linea:
+Renombrar /sites/settings.example.local.php -> /sites/default/settings.local.php 
+
+# Descomentar la siguiente linea en el archivo settings.php:
 
  # if (file_exists(__DIR__ . ‘/settings.local.php’)) {
  # include __DIR__ . ‘/settings.local.php’;
  # }
-Deshabilitar la Cache
 
-En el archivo sites/default/settings.local.php file, descomentar las siguientes líneas. $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml'; $settings['cache']['bins']['render'] = 'cache.backend.null'; $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+
+DESHABILITAR LA CACHE
+# Cambia las siguientes líneas en  'settings.local.php' asignándo su valor a TRUE
+
+$config['system.performance']['css']['preprocess'] = FALSE;
+
+$config['system.performance']['js']['preprocess'] = FALSE;
+
+
+En el archivo sites/default/settings.local.php file, descomentar las siguientes líneas. 
+
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+ 
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 Deshabilitar el Cache de Twig y activar el Twig Debugging
 
-Tenemos que habilitar para en sites/default/services.yml Si no exite services.yml copiamos el default.services.yml lo renombramos a services.yml Cambiar dentro de services.yml los siguientes parámetros: parameters: twig.config: debug: true auto_reload: true cache: false
+Tenemos que habilitar para en sites/default/services.yml Si no exite services.yml copiamos el default.services.yml lo renombramos a services.yml Cambiar dentro de services.yml los siguientes parámetros: 
+parameters: twig.config: 
+debug: true 
+auto_reload: true 
+cache: false
+
+# Observaciones: si nos aparecen mensaje de notice y warnings al habilitar el archivo settings.local.php, lo podemos deshabilitar en la siguiente linea:
+
+$config['system.logging']['error_level'] = 'verbose';
+
+comentamos la linea y se quitan los mensajes.
 
 
 ***************************************
