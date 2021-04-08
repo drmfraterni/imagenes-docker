@@ -9,8 +9,8 @@ HERRAMIENTAS NECESARIAS.
 COMANDOS BÁSICOS DE GIT.
 
 $ git init    // Iniciar un git
-$ git config --global user robledomorante
-$ git config --global email robledomorante@gmail.com
+$ git config --global user nombreUsuario
+$ git config --global email nombreUsuario@gmail.com
 $ git add
 $ git add -A
 $ git add -- .
@@ -110,31 +110,7 @@ directorio en rojo con los archivos indicando que no los tenemos registrados en 
 
 8) Añade todos los archivos al control y lo vemos a través del comando:
 	$ git status
-	Changes to be committed:
-  	(use "git rm --cached <file>..." to unstage)
-        	new file:   apple-touch-icon.png
-	        new file:   browserconfig.xml
-	        new file:   css/bootstrap-theme.css
-	        new file:   css/bootstrap-theme.css.map
-        	new file:   css/bootstrap-theme.min.css
-	        new file:   css/bootstrap.css
-	        new file:   css/bootstrap.css.map
-	        new file:   css/bootstrap.min.css
-	        new file:   css/main.css
-	        new file:   favicon.ico
-	        new file:   fonts/glyphicons-halflings-regular.eot
-	        new file:   fonts/glyphicons-halflings-regular.svg
-	        new file:   fonts/glyphicons-halflings-regular.ttf
-	        new file:   fonts/glyphicons-halflings-regular.woff
-	        new file:   index.html
-	        new file:   js/main.js
-	        new file:   js/vendor/bootstrap.js
-	        new file:   js/vendor/bootstrap.min.js
-	        new file:   js/vendor/jquery-1.11.2.min.js
-        	new file:   js/vendor/modernizr-2.8.3-respond-1.4.2.min.js
-	        new file:   js/vendor/npm.js
-        	new file:   tile-wide.png
-	        new file:   tile.png
+	
 9) Ahora vamos hacer un snashop de proyecto que estamos creando, una fotografía para ello ponemos el siguiente comando:
 	$ git commit -m "primer commit"
 10) En caso que ahora cambie alguno de los archivos o los borre puedo recuperarlo con git a través del siguiente comando:
@@ -145,20 +121,6 @@ VER TODOS LOS COMMIT.
 
 1) Para ver el historial de commit que tenemos y poder volver alguno de ellos tenemos que ejecutar el siguiente comando:
 	$ git log
-
-	$ git log
-	commit 6db5bdaa96a7106d67fc76fad8978754a9b112ce (HEAD -> master)  // commit más actualizado
-	Author: robledomorante <drmfraterni@gmail.com>                    // autor de commi
-	Date:   Wed Jan 29 21:06:19 2020 +0100				  // Fecha de commit						
-
-	    Prueba de modificación de un archivo                          // Comentario del commit
-
-	commit b752bd084eff804d33e70bb85f417019d5b18843
-	Author: robledomorante <drmfraterni@gmail.com>
-	Date:   Wed Jan 29 19:48:49 2020 +0100
-
-	    primer commit
-
 
 TRABAJANDO CON NUESTRO PROYECTO LOCAL.
 
@@ -186,34 +148,6 @@ DISTINTOS COMANDOS DE GIT LOG
 	$ git log --oneline   // vemos los datos más completos
 
 	$ git log   // comando log sin parámetros.
-	
-		commit 19fa9e8544a5f7e0038a5c0a26f6060d38179095 (HEAD -> master)
-		Author: robledomorante <drmfraterni@gmail.com>
-		Date:   Wed Jan 29 21:44:07 2020 +0100
-
-    		incorporamos el archivo browserconfig.xml
-
-		commit 0428311225841e319984bde3a2b6a1bd00acf1ce
-		Author: robledomorante <drmfraterni@gmail.com>
-		Date:   Wed Jan 29 21:35:50 2020 +0100
-
-    		todos los archivos de javascript y fuenres
-
-		commit e3544e1af1138dc4134ea772b481355dea6b70cf
-		Author: robledomorante <drmfraterni@gmail.com>
-		Date:   Wed Jan 29 21:28:48 2020 +0100
-
-    		Hemos añadido todos los CSS
-
-		commit 72343881f7e7c00a9b4975e873b932179e0d59ff
-		Author: robledomorante <drmfraterni@gmail.com>
-		Date:   Wed Jan 29 21:25:17 2020 +0100
-
-    		todos los archivos de imagen png
-
-		commit 76fa87dab0919f04fada25bf3bc2d528770cecdf
-		Author: robledomorante <drmfraterni@gmail.com>
-		Date:   Wed Jan 29 21:23:39 2020 +0100
 	
 	
 	$ git log --oneline
@@ -290,16 +224,6 @@ d7d5e76 (HEAD -> master) HEAD@{0}: reset: moving to d7d5e76
 d9990af HEAD@{3}: commit: Agregamos a linterna verde y Robin
 b4a7b66 HEAD@{4}: reset: moving to b4a7b66
 40ff9ab HEAD@{5}: commit: modificación del heroes
-b4a7b66 HEAD@{6}: reset: moving to b4a7b66
-d305568 HEAD@{7}: commit: Agregamos a Literna verde
-b4a7b66 HEAD@{8}: commit: Editamos el README.md
-5692b54 HEAD@{9}: commit (amend): se agregó la carpeta HISTORIAS de heroes
-32f6ee7 HEAD@{10}: commit (amend): se agregó la carpeta HISTORIAS
-500ad25 HEAD@{11}: commit: se agregó la carpeta HISTORIA
-7e91cb8 HEAD@{12}: commit: Se agregó el archivo de CIUDADES
-1156084 HEAD@{13}: commit: Se agregó el archivo de HEROES
-d7d5e76 (HEAD -> master) HEAD@{14}: commit: Se agregó el archivo MISIONES
-bde7315 HEAD@{15}: commit (initial): Se agrego el archivo readme
 
 
 Nos aparece todo en registro, todo lo que hemos realizado y por lo tanto podremos ir al momento de la histroa que queramos. En este caso vamos al periodo - d9990af  - Agregamos a linterna verde y Robin.
@@ -386,12 +310,7 @@ $ git lg
 * 9d6f3b9 renombrar archivo a salvar-mundo.txt
 * 1a62b3a Como destruir el mundo
 * d9990af Agregamos a linterna verde y Robin
-* b4a7b66 Editamos el README.md
-* 5692b54 se agregó la carpeta HISTORIAS de heroes
-* 7e91cb8 Se agregó el archivo de CIUDADES
-* 1156084 Se agregó el archivo de HEROES
-* d7d5e76 Se agregó el archivo MISIONES
-* bde7315 Se agrego el archivo readme
+
 general@LAPTOP-TQ55EANN MINGW64 ~/Desktop/curso/demo-4 (master)
 $ git s
 ## master
@@ -418,13 +337,6 @@ $ git lg
 * 0c7b2c3 borrar archivo salvar mundo
 * 9d6f3b9 renombrar archivo a salvar-mundo.txt
 * 1a62b3a Como destruir el mundo
-* d9990af Agregamos a linterna verde y Robin
-* b4a7b66 Editamos el README.md
-* 5692b54 se agregó la carpeta HISTORIAS de heroes
-* 7e91cb8 Se agregó el archivo de CIUDADES
-* 1156084 Se agregó el archivo de HEROES
-* d7d5e76 Se agregó el archivo MISIONES
-* bde7315 Se agrego el archivo readme
 
 general@LAPTOP-TQ55EANN MINGW64 ~/Desktop/curso/demo-4 (master)
 $
@@ -464,13 +376,6 @@ $ git lg
 * 0c7b2c3 borrar archivo salvar mundo
 * 9d6f3b9 renombrar archivo a salvar-mundo.txt
 * 1a62b3a Como destruir el mundo
-* d9990af Agregamos a linterna verde y Robin
-* b4a7b66 Editamos el README.md
-* 5692b54 se agregó la carpeta HISTORIAS de heroes
-* 7e91cb8 Se agregó el archivo de CIUDADES
-* 1156084 Se agregó el archivo de HEROES
-* d7d5e76 Se agregó el archivo MISIONES
-* bde7315 Se agrego el archivo readme
 
 general@LAPTOP-TQ55EANN MINGW64 ~/Desktop/curso/demo-4 (master)
 $
@@ -636,8 +541,8 @@ CONECTAR GIT CON GITHUB
 3) Conectamos con github y subimos el proyecto
 	general@LAPTOP-TQ55EANN MINGW64 ~/Desktop/curso/demo-09 (master)
 	$ git push -u origin master
-	USUARIO:drmfraterni
-	CONTRASEÑA:Drm@2019
+	USUARIO: nombreUsuairo
+	CONTRASEÑA: lacontrasenia
 
 SUBIR TAGS
 
