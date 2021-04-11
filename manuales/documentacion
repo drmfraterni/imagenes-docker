@@ -1,4 +1,159 @@
 ****************************************
+INSTALAR SERVIDOR WEB APACHE UBUNTU
+****************************************
+https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-es
+https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04-quickstart-es
+
+1. PASO INSTALAR APACHE
+
+Acutalizamos los repositorios locales de Ubuntu
+
+$ sudo apt update
+ 
+A continuación, instale el paquete apache2:
+
+$ sudo apt install apache2
+
+2. PASO AJUSTAR EL FIREWALL
+
+$ sudo ufw app list
+$ sudo ufw allow 'Apache'
+$ sudo ufw status
+
+3. PASO 3.
+
+$ sudo systemctl status apache2 // ver el estado del servidor Apache
+$ hostname -I  //obtener direcciones separadas por espacios
+$ curl -4 icanhazip.com // Obtener la dirección pública
+
+4. PASO ADMINISTRAR EL PROCESO DE APACHE
+
+
+sudo systemctl stop apache2
+ 
+sudo systemctl start apache2
+ 
+sudo systemctl restart apache2
+ 
+sudo systemctl reload apache2
+ 
+sudo systemctl disable apache2
+ 
+sudo systemctl enable apache2
+ 
+5. PASO CONFIGURAR HOSTS VIRTUALES
+
+$ sudo mkdir /var/www/your_domain
+$ sudo chown -R $USER:$USER /var/www/your_domain
+$ sudo chmod -R 755 /var/www/your_domain
+$ sudo nano /var/www/your_domain/index.html
+
+$ sudo nano /etc/apache2/sites-available/your_domain.conf
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName your_domain
+    ServerAlias www.your_domain
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+$ sudo a2ensite your_domain.conf  // Habilitaremos el archivo
+$ sudo a2dissite 000-default.conf // Deshabilitamos el archivo por defecto.
+$ sudo systemctl restart apache2
+
+
+***************************************************************
+COMO INSTALAR LINUX APACHE MYSQL Y PHP EN UBUNTU 20.04
+***************************************************************
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-es
+
+1. PASO INSTALAR APACHE
+$ sudo apt update  // actualizar la librerías locales
+$ sudo apt install apache2 // instalar apache
+$ sudo ufw app list // listar el firewall
+$ sudo ufw allow in "Apache"  // permitir el tráfico sólo con Apache
+sudo ufw status // comprobar el firewall
+http://your_server_ip // comprobamos que lo hemos instalado correctamente.
+
+2. PASO Averiguar la dirección IP pública de sus servidor
+$ ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+
+3. PASO INSTALAR MYSQL.
+
+$ sudo apt install mysql-server
+$ sudo mysql_secure_installation
+
+
+Se le preguntará si desea configurar el VALIDATE PASSWORD PLUGIN.
+Nota: La habilitación de esta característica queda a discreción del usuario. Si se habilita, MySQL rechazará con un mensaje de error las contraseñas que no coincidan con los criterios especificados. Dejar la validación desactivada será una opción segura, pero siempre deberá utilizar contraseñas seguras y únicas para credenciales de bases de datos.
+
+$ sudo mysql
+// Que creamos Usuarios para la base de datos accedemos de la siguiente manera:
+
+$ mysql -u user -p bbdd
+$ introducimos la contraseña del usuario.
+
+$ mysql> exit // para salir de la base de datos.
+
+4. PASO INSTALAR PHP.
+
+$ sudo apt install php libapache2-mod-php php-mysql
+
+Posibles librerías a instalar de php:
+curl pdo_mysql mbstring mysqli gd2
+
+5. PASO  CREAR UN HOST VIRTUAL PARA SU SITIO WEB
+
+$ sudo mkdir /var/www/your_domain
+$ sudo chown -R $USER:$USER /var/www/your_domain
+$ sudo nano /etc/apache2/sites-available/your_domain.conf
+
+<VirtualHost *:80>
+    ServerName your_domain
+    ServerAlias www.your_domain
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+$ sudo a2ensite your_domain
+$ sudo a2dissite 000-default
+$ sudo apache2ctl configtest
+$ sudo systemctl reload apache2
+$ nano /var/www/your_domain/index.html
+$ sudo systemctl reload apache2
+
+// COMPROBAR BASE DE DATOS
+
+$ nano /var/www/your_domain/todo_list.php
+/var/www/your_domain/todo_list.php
+<?php
+$user = "example_user";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+
+
+
+
+
+
+****************************************
 INSTALAR DRUSH
 ****************************************
 
@@ -76,6 +231,10 @@ comandos linux-ubuntu
 
 rmdir /mi-directorio
 rm -rfv /mi-directorio
+history | grep ffmpeg   // buscar un comando utilizado en la terminal
+history | grep mysqldump
+
+
 
 
 
@@ -189,6 +348,10 @@ $ drush migrate-import bz_usuarios
 $ drush migrate-import bz_productos --update
 $ drush ms -> listar todas la migraciones
 
+// ACTUALIZAR DRUPAL CON DRUSH
+https://www.carloscarrascal.com/blog/actualizar-drupal-con-drush-desde-la-linea-de-comandos
+$ drush up drupal
+
 *******************************************
 	URLs limpias para Drupal 8
 *******************************************
@@ -259,6 +422,10 @@ SHOW GRANTS FOR 'Usuario';
 # IMPORTAR BBDD
 
 mysql -u username -p new_database < data-dump.sql
+Ejemplo: mysql -u boulderzvo -p boulderpruebas < boulderzvo.sql
+
+
+
 
 # EXPORTAR
 
@@ -267,6 +434,8 @@ mysqldump -u username -p database_name > data-dump.sql
 ****************************************
 	virtualhost ubuntu
 ****************************************
+https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04-quickstart-es
+
 1. Crear la estructura de directorios
 
 $ sudo mkdir -p /var/www/example.com/public_html
@@ -333,7 +502,7 @@ Restauramos el apache
 $ sudo systemctl restart apache2
 
 6. Configurar el archivo de hosts locales 
-
+*******host**************
 $ sudo nano /etc/hosts
 
 127.0.0.1   localhost
@@ -344,6 +513,24 @@ your_server_IP test.com
 Restauramos el apache
 
 $ sudo systemctl restart apache2
+
+******** host drupal *************
+Para que funcione correctamente el host en el drupal 
+tenemos que ir al setting.php
+
+$settings['trusted_host_patterns'] = array(
+  '^yourdomain\.com$',
+  '^.+\.yourdomain\.com$',
+  '^yourdomain\.org',
+  '^.+\.yourdomain\.org',
+);
+
+ $settings['trusted_host_patterns'] = array(
+   'boulderzone\.com$',
+   'boulderzone\.local$',
+ );
+
+
 
 
 
