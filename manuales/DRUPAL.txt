@@ -155,3 +155,11 @@ class ModuleConfigurationForm extends ConfigFormBase {
   }
 
 }
+
+
+*******************************************
+Plantillas twig
+*******************************************
+https://www.drupaladicto.es/curso/plantillas-twig-uso-de-condicionales-y-campos?fbclid=IwAR0ja_OdPd4eer8zLhVEZzn9_v9zlX9GHhvx8S9QWpd8WuVU-CIn10aFV6c
+https://www.drupal.org/docs/theming-drupal?fbclid=IwAR3vmz8DnuefxcBc1swBS7bTsygM-JDotxbch6lnv_zSoyrtqKHciItQaFQ - theming Drupal
+https://www.drupal.org/docs/drupal-apis/services-and-dependency-injection/structure-of-a-service-file  -Servicios de drupal
