@@ -588,7 +588,17 @@ html {
   box-sizing: inherit;
 }
 
+IMPORTAR BASE DE DATOS MYSQL EN XAMP, LARAGON WINDOWS
 
+c:\Users\drm107h> cd c:\xampp\mysql\bin
+c:\xampp\mysql\bin
+Iniciamos la consolo de mysql, para ello tenemos que introducir el comando mysql y tambien el usuario y la contraseña.
+c:\xampp\mysql\bin>mysql -u root -p  
+Nos pide la confirmación del password.
+la confirmamos y ya estamos dentro de la consola de Mysql.
+
+
+SOURCE C:/laragon/www/demo/gestion/bbdd/boulderzsjgs2016.sql
 
 
 
