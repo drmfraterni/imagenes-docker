@@ -64,5 +64,5 @@ sudo service apache2 restart
 
 
 ## Fuentes:
-https://www.linuxito.com/gnu-linux/nivel-alto/1451-actualizar-la-version-de-php-en-un-servidor-debian
-https://blog.pleets.org/article/instalar-php-7.4-en-debian-10-o-debian-9
+- https://www.linuxito.com/gnu-linux/nivel-alto/1451-actualizar-la-version-de-php-en-un-servidor-debian
+- https://blog.pleets.org/article/instalar-php-7.4-en-debian-10-o-debian-9
