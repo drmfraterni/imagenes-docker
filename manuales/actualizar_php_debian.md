@@ -10,8 +10,10 @@ https://blog.pleets.org/article/instalar-php-7.4-en-debian-10-o-debian-9
 ## Actualizar el sistema
 
 ~~~
+
 sudo apt update
 sudo apt upgrade -y && sudo reboot
+
 ~~~
 
 ## Agregar el PPA
