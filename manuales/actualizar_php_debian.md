@@ -1,6 +1,6 @@
 # Ver las librerías instaladas el phpen Debian:
 ~~~
-**apt list --installed | grep "^php7.3" | cut -d'/' -f1**
+apt list --installed | grep "^php7.3" | cut -d'/' -f1
 ~~~
 
 # instalar la versión php7.4
@@ -11,10 +11,10 @@ https://blog.pleets.org/article/instalar-php-7.4-en-debian-10-o-debian-9
 ## Actualizar el sistema
 
 ~~~
-**
+
 sudo apt update
 sudo apt upgrade -y && sudo reboot
-**
+
 ~~~
 
 ## Agregar el PPA
