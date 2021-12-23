@@ -9,7 +9,7 @@ use App\Detalles;
 
 function mi_autoload($clase) {
     //echo $clase;
-    $partes = explode(''//'', $clase)
+    $partes = explode(''\\'', $clase)
     require __DIR__.'clases/' . $partes[1] . 'php';
 }
 
