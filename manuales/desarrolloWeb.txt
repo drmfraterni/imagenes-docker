@@ -1,0 +1,4543 @@
+*******************************
+
+     CSS
+
+*******************************
+
+
+
+REM: Relativo al documento. Toma como referencia el documento.
+
+
+
+html {
+
+	font-size: 62.5%;
+
+}
+
+
+
+body {
+
+	font-size: 16px; /* 1rem = 10px */
+
+}
+
+
+
+*******************************
+
+     SELECTORES
+
+*******************************
+
+
+
+ETIQUETAS
+
+
+
+p {
+
+    line-height: 2;
+
+}
+
+body {
+
+    font-family: 'Krub', sans-serif;
+
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+
+    min-height: 100%;
+
+    
+
+}
+
+
+
+CLASE
+
+
+
+.contenedor {
+
+    margin: 0 auto;
+
+    max-width: 1200px;
+
+}
+
+
+
+ID - Tiene que ser un elemento único
+
+
+
+#contenedor {
+
+    margin: 0 auto;
+
+    max-width: 1200px;
+
+}
+
+
+
+
+
+ATRIBUTO
+
+
+
+[src="logo.jpg"] {
+
+    color:blue;
+
+}
+
+
+
+Los campos de un formulario, tomando como atributo el tipo de input
+
+.campo input[type="text"],
+
+.campo input[type="tel"],
+
+.campo input[type="mail"],
+
+.campo textarea {
+
+    width: 100%;
+
+    padding: .5rem;
+
+    border: none;
+
+    border-radius: .5rem;
+
+}
+
+
+
+
+
+TODOS LOS HIJOS:
+
+
+
+.cliente > p {
+
+     color:blue; /*Selecciona todos los párrafos que son hijos de la clase cliente*/
+
+}
+
+
+
+
+
+*******************************
+
+     VARIABLES CSS
+
+*******************************
+
+COLOR:
+
+
+
+:root {
+
+    --blanco: #ffffff;
+
+    --primario: #FFC107;
+
+    --secundario: #0097A7;
+
+    --gris: #757575;
+
+    --oscuro: #212121;
+
+}
+
+
+
+*******************************
+
+     UTILIDADES CSS
+
+*******************************
+
+De las mismas manera que tenemos la variables para CSS, podemos crear utilidades:
+
+
+
+/** UTILIADES **/
+
+
+
+.w-100 {
+
+    width: 100%;
+
+}
+
+
+
+.flex {
+
+    display:flex;
+
+}
+
+
+
+.alinear-derecha {
+
+    justify-content: flex-end;
+
+}
+
+
+
+************************************************
+
+    DEGRADADO CSS
+
+*************************************************
+
+https://www.colorzilla.com/gradient-editor/
+
+.overlay {
+
+
+
+	background: linear-gradient(to top, $amarillo 50%, $morado);
+
+	background: linear-gradient(135deg,  rgba(137,28,30,0.8) 0%,rgba(158,55,242,0.6) 67%,rgba(255,255,255,0.5) 100%)
+
+
+
+}
+
+
+
+
+
+************************************************
+
+    ELIMINAR BORDES DE LOS DIV / BOX MODEL
+
+*************************************************
+
+
+
+html {
+
+    box-sizing: border-box;
+
+    min-height: 100%;
+
+    scroll-snap-type: y mandatory;
+
+}
+
+*, *:before, *:after {
+
+    box-sizing: inherit;
+
+}
+
+
+
+
+
+************************************************
+
+    ESPEFICIDAD
+
+*************************************************
+
+
+
+Las librerías externas primero y la nuestras al final
+
+
+
+************************************************
+
+    CENTRAR UN DIV EN LA PÁGINA
+
+*************************************************
+
+.navegacion-principal {
+
+	margin:0 auto;
+
+}
+
+
+
+*******************************************************
+
+    DISPLAY POR DEFECTO DEPENDIENDO DE ELEMENTO
+
+*******************************************************
+
+
+
+Block - Significa que el elemento se colocará uno debajo de otro sin importar su tamaño o contenido. ejemplo de ello son los div, p, section
+
+
+
+
+
+inline - Significa que el elemento se posicionará a la derecha una vez que haya tomado el espacio que requiere. Ejemplo nav a img
+
+
+
+
+
+
+
+*******************************************************
+
+    MEDIA QUERIES
+
+*******************************************************
+
+/* Dispositivos pequeños landscapes teléfonos */
+
+@media (min-width:576px){ 
+
+
+
+
+
+}
+
+
+
+/* Dispositivos medianos tables */
+
+@media (min-width:768px){
+
+
+
+
+
+}
+
+/* Dispositivos grandes ordenadores, portátiles*/
+
+@media (min-width:992px){
+
+
+
+
+
+}
+
+
+
+/* Dispositivos muy grandes ordenadores*/
+
+@media (min-width:1200px){
+
+
+
+
+
+}
+
+
+
+CRTL + SHIHF + P crear atajos de visual code
+
+
+
+Ejemplo:
+
+
+
+"crea un Media Querie":{
+
+	"prefix": "mq",
+
+	"body":"@media(min-width: $1) {\n      $2\n}"
+
+
+
+}
+
+
+
+*******************************************************
+
+    IMG GRANDES / PANTALLA COMPLETA
+
+*******************************************************
+
+.hero {
+
+    height: 450px;
+
+    background-image: url(../img/hero.jpg);
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    margin-bottom: 2rem;
+
+    position: relative;
+
+}
+
+
+
+Utilizamos la propiedad background-image: url(../img/hero.jpg);
+
+
+
+
+
+*******************************************************
+
+    POSICIÓN ABSOLUTA / RELATIVA
+
+*******************************************************
+
+Contenedor padre siempre posición relativa.
+
+Contenedor hijo siempre posición absoluta.
+
+
+
+.hero {
+
+    height: 450px;
+
+    background-image: url(../img/hero.jpg);
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    margin-bottom: 2rem;
+
+    position: relative;
+
+}
+
+
+
+.contenido-hero {
+
+    position: absolute
+
+    top:0;
+
+    right:0;
+
+}
+
+
+
+SOMBRA DE LA IMAGEN
+
+
+
+.contenido-hero {
+
+    position: absolute
+
+    width:100%;
+
+    height:100%;
+
+    background-color: rgba(0,0,0, .7); /** Anterior **/
+
+    background-color: rgb(0 0 0 / 70%); /** Nueva manera **/
+
+}
+
+
+
+
+
+*** Recordar si utilizamos rgb con transparencia hay que utilizar rgba.
+
+
+
+
+
+*******************************************************
+
+    DEGRADADO CON CSS
+
+*******************************************************
+
+Degradado la propiedad es background-image
+
+Ejemplo:
+
+body {
+
+    font-family: 'Krub', sans-serif;
+
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+
+    min-height: 100%;
+
+    
+
+}
+
+
+
+
+
+*******************************************************
+
+    GRID CSS
+
+*******************************************************
+
+1. Display: grid
+
+-------------------------------------------------------
+
+
+
+Grid: permite definir la ubicación y tamaño de los elementos de tu sitio web.
+
+El contenido se agrupa dentro de un área definida
+
+
+
+// no es responsive
+
+// Utiliar media query
+
+.servicios {
+
+        display: grid;
+
+        grid-template-columns: 33.3% 33.3% 33.3%;
+
+        grid-template-columns: 1fr 1fr 1fr; // una fracción de tres columnas. Resultado igual que arriba
+
+        grid-template-columns: repeat(3, 1fr) // 3 fracciones ;        
+
+	column-gap: 1rem;
+
+    }
+
+
+
+
+
+Para las columas: grid-template-columns
+
+Para las filas: grid-template-rows
+
+
+
+Column-gap: separación entre columnas
+
+
+
+Seleccionar un elemento dentro de una clase:
+
+
+
+.campo:nth-child(3); /* selecciono el campo Correo */
+
+
+
+Ejemplo:
+
+
+
+<div class="contenedor-campos">
+
+                    <div class="campo">
+
+                        <label>Nombre</label>
+
+
+
+                        <input type="text" name="nombre" placeholder="Nombre" required>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Teléfono</label>
+
+
+
+                        <input type="tel" name="telefono" placeholder="Teléfono">
+
+                    </div>
+
+                    <div class="campo w-100">
+
+                        <label>Correo</label>
+
+
+
+                        <input type="mail" name="correo" placeholder="Mail">
+
+                    </div>
+
+                    <div class="campo w-100">
+
+                        <label>Mensaje:</label>
+
+
+
+                        <textarea></textarea>
+
+                    </div>
+
+</div>
+
+
+
+Trabajo por áreas con grid
+
+-----------------------------------------------------
+
+
+
+Tenemos tres columnas desiguales, la del centro más grande.
+
+El html tenemos primero el contenido y luego sidebar-1 y sidebar-2
+
+
+
+@media (min-width: 768px) {
+
+    .contenedor-grid {
+
+        display: grid;
+
+        grid-template-areas: "izquierda contenido derecha";
+
+        grid-template-columns: 1fr 3fr 1fr;
+
+        grid-auto-flow: column; /* nos acomoda los elementos en columnas para no dar tanta numeración */
+
+        column-gap: 2rem;
+
+    }
+
+    .contenido-principal {
+
+        grid-area: contenido;
+
+    }
+
+
+
+    .sidebar-1 {
+
+        grid-area: izquierda;
+
+    }
+
+}
+
+
+
+Trabajo con grid para no tener que introducir medias queries
+
+-------------------------------------------------------------------------
+
+Con este código por ejemplo en formato cards no tenemos que introducir media queries ya que el 
+
+grid se va adaptar a la pantalla de forma automática.
+
+
+
+https://www.youtube.com/watch?v=El0OJ6h_2ZI
+
+
+
+.gallery {
+
+	display: grid;
+
+	gap: 1rem;
+
+	grid-auto-rows: 22rem;
+
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr);
+
+
+
+}
+
+
+
+una variante de la función de css witdh: min(100%, 25rem) lo tenemos en grid
+
+
+
+.gallery {
+
+	display: grid;
+
+	gap: 1rem;
+
+	grid-auto-rows: 22rem;
+
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr);
+
+
+
+}
+
+
+
+Rellenar huecos con el grid para que no deforme la página web si las columnas no son iguales.
+
+Por ejemplo si tenemos una imagen que ocupa dos columans y las demás una para que se coloquen de forma
+
+correcta utilizamos.
+
+grid-auto-flow: dense;
+
+
+
+.gallery {
+
+	display: grid;
+
+	gap: 1rem;
+
+	grid-auto-flow: dense;
+
+	grid-auto-rows: 22rem;
+
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr);
+
+
+
+}
+
+
+
+
+
+*******************************************************
+
+    DISPLAY FLEXBOX
+
+*******************************************************
+
+
+
+Alinear los enlaces. Me voy a la navegación Padre, ejemplo:
+
+
+
+<div class=" nav-bg">
+
+        <nav class="navegacion-principal contenedor">
+
+            <a href="#">Inicio</a>
+
+            <a href="#">Nosotros</a>
+
+            <a href="#">Clientes</a>
+
+            <a href="#">Contactos</a>
+
+        </nav>
+
+</div>
+
+
+
+.navegacion-principal {
+
+	display:flex; /* nos habilita las propiedades de fles como justify-content */
+
+	justify-content: space-between /* el primero y último se va a las esquinas.
+
+
+
+}
+
+
+
+En flexbox solo puedes colocaqr y distribuir tus elementos en una dirección fila (row) o columna (column).
+
+
+
+Row es aplicado por defecto al definir un display:flex; El contenido se coloca horizontalmente de izquierda a derecha.
+
+
+
+Row -reverse se colocan los elemento horizontalmente de derecha a izquierda.
+
+
+
+
+
+Column: se coloca de verticalmente.
+
+Column-reverse: se coloca verticalemente de abajo a arriba.
+
+
+
+display: flex;
+
+flex-direction: column; // alineamos verticalmente
+
+align-items: center; // flex-end // flex-start // alineamos horizontalmente con COLUMN
+
+
+
+display: flexbox;
+
+
+
+Flexbox: el contenido crece automáticamente
+
+
+
+.iconos {
+
+    display: flex;
+
+    height: 150px;
+
+    width: 150px;
+
+    justify-content: center;
+
+    /* alineación vertical y horizontal con flexbox	
+
+    align-items: center;
+
+    background-color: var(--primario);
+
+    border-radius: 50%;
+
+}
+
+
+
+Ejemplo de dos columnas iguales con flexbox:
+
+---------------------------------------------------
+
+
+
+@media (min-width: 768px) {
+
+    .dos-columnas {
+
+        display: flex;
+
+        justify-content: space-between; /* separación igual entre columnas */
+
+    }
+
+
+
+    .entrada-blog {
+
+        flex: 0 0 calc( 50% - 1rem ); /* espacio entre las dos columnas */
+
+    }
+
+}
+
+
+
+Ejemplo 3 columnas desiguales y ordenamos las columnas
+
+-------------------------------------------------------
+
+
+
+@media (min-width: 768px) {
+
+    .contenedor-flex {
+
+        display: flex;
+
+        justify-content: space-between;
+
+    }
+
+    .contenido-principal {
+
+        flex-basis: calc(60% - 1rem);
+
+    }
+
+
+
+    .sidebar {
+
+        flex-basis: calc(20% - 1rem);
+
+    }
+
+    .sidebar-1 {
+
+        order: -1; /* ponemos la columna sidebar-1 como primera columna */
+
+    }
+
+}
+
+
+
+Ejemplo 4 columnas Drop: dos columnas al principio cada una 50% de ancho y debajo una columna 100%
+
+
+
+@media (min-width: 480px) {
+
+    .column-drop-flex {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap; /* Esto es lo que hacer que la tercera columna se baje */
+
+	flex-wrap: wrap-reverse /* cambia las columnas a la inversa */
+
+    }
+
+
+
+    .contenido-principal, 
+
+    .primera {
+
+        flex-basis: calc(50% - 1rem);
+
+    }
+
+}
+
+
+
+@media (min-width: 768px) {
+
+    .contenido-principal, 
+
+    .primera,
+
+    .segunda {
+
+        flex: 0 0 calc(33.3% - 2rem);
+
+    }
+
+}
+
+
+
+
+
+**********************************************************
+
+        NUEVA FUNCIÓN WIDTH
+
+**********************************************************
+
+La función hace que coge la anchura más pequeña.
+
+Por ejemplo en la pantalla del ordenador el 100% de la pantalla serán 1600px; más grande que los 60rem que son 600 px, por lo tanto nos cogerá los 60rem.
+
+
+
+Si estamos en un dispositivo móvil, el 100% de la pantalla será más pequeño que los 60rem y nos cogerá el 100% de la pantalla, con lo que nos quitamos medias queries.
+
+
+
+witdth: min (60rem, 100%);
+
+
+
+**********************************************************
+
+        EFECTO SCROLL
+
+**********************************************************
+
+Efecto scroll:
+
+La propiedad es: scroll-snap-type: y mandatory /* si lo queremos en vertical */
+
+                 scroll-snap-type: x mandatory /* si lo queremos en horizontal*/
+
+
+
+Ejemplo:
+
+
+
+html {
+
+    box-sizing: border-box;
+
+    min-height: 100%;
+
+    scroll-snap-type: y mandatory;
+
+}
+
+
+
+Para que el scroll vaya parando en la secciones que queramos
+
+
+
+.servicios, .navegacion-principal, .formulario {
+
+    scroll-snap-align: center;
+
+    scroll-snap-stop: always;
+
+}
+
+
+
+Para al principo, en la cabacera (navegacion-principal),  en servicios y en el formulario
+
+
+
+**********************************************************
+
+        INICIO DEL DOCUMENTOS PRINCIPAL DE CSS
+
+**********************************************************
+
+:root {
+
+    --primario: #9C27B0;
+
+    --primarioOscuro: #89119D;
+
+    --secundario: #FFCE00;
+
+    --secundarioOscuro: rgb(233, 187, 2);
+
+    --blanco: #FFF;
+
+    --negro: #000;
+
+
+
+    --fuentePrincipal: 'Staatliches', cursive;
+
+}
+
+
+
+html {
+
+    box-sizing: border-box;
+
+    font-size: 62.5%; 
+
+}
+
+
+
+*, *:before, *:after {
+
+    box-sizing: inherit;
+
+}
+
+
+
+/** Globales **/
+
+body {
+
+    background-color: var(--primario);
+
+    font-size: 1.6rem;
+
+    line-height: 1.5;
+
+}
+
+p {
+
+    font-size: 1.8rem;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--blanco);
+
+}
+
+a {
+
+    text-decoration: none;
+
+}
+
+img {
+
+    width: 100%;
+
+}
+
+.contenedor {
+
+    max-width: 120rem;
+
+    margin: 0 auto;
+
+}
+
+h1, h2, h3 {
+
+    text-align: center;
+
+    color: var(--secundario);
+
+    font-family: var(--fuentePrincipal);
+
+}
+
+h1 {
+
+    font-size: 4rem;
+
+}
+
+h2 {
+
+    font-size: 3.2rem;
+
+}
+
+h3 {
+
+    font-size: 2.4rem;
+
+}
+
+
+
+
+
+**********************************************************
+
+        BEM: Block Element Modifier
+
+**********************************************************
+
+Es una metodología para crear código reutilizable y ordenado en tus proyectos con CSS.
+
+
+
+Reglas de Ben:
+
+
+
+Padre: class= "cliente"
+
+Hijo:  class= "cliente__nombre" // doble guión bajo 
+
+
+
+Modificadores:
+
+
+
+Hijo:  class= "cliente__nombre--ceo" // modificador variante de cliente nombre
+
+
+
+
+
+**********************************************************
+
+        SEUDO SELECTORES
+
+**********************************************************
+
+https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes
+
+https://neliosoftware.com/es/blog/pseudo-elementos-y-pseudo-selectores-css/
+
+
+
+Existen tres variaciones de la pseudo-clase *-child:
+
+
+
+:first-child permite seleccionar el primer hijo de un elemento
+
+:last-child hace lo propio con el último hijo
+
+:nth-child(i) permite seleccionar i-ésimo hijo de un elemento (por ejemplo, :nth-child(2) es el segundo hijo)
+
+F
+
+
+
+1. :first 
+
+----------------------------------------------
+
+/* Selecciona la primera página al imprimir */
+
+@page :first {
+
+  margin-left: 50%;
+
+  margin-top: 50%;
+
+}
+
+
+
+2. :first-child
+
+------------------------------------------------
+
+/* Selecciona cualquier <p> que sea el primer elemento entre sus hermanos */
+
+
+
+p:first-child {
+
+  color: lime;
+
+}
+
+
+
+<div>
+
+  <p>¡Este texto está seleccionado!</p>
+
+  <p>Este texto no está seleccionado.</p>
+
+</div>
+
+
+
+3. :first-of-type
+
+-------------------------------------------------------
+
+/* Selecciona cualquier <p> que sea el primer elemento
+
+   de este tipo entre sus hermanos */
+
+p:first-of-type {
+
+  color: red;
+
+}
+
+
+
+<article>
+
+  <div>!Este `div` es primero!</div>
+
+  <div>¡Este <span>`span` anidado es el primero</span>!</div>
+
+  <div>¡Este <em>`em` anidado es el primero</em>, pero este <em>`em` anidado es el último</em>!</div>
+
+  <div>¡Este <span>`span` anidado tiene estilo</span>!</div>
+
+  <b>¡Este `b` califica!</b>
+
+  <div>Este es el `div` final.</div>
+
+</article>
+
+
+
+article :first-of-type {
+
+  background-color: pink;
+
+}
+
+
+
+Selecciona el último elemento de los enlaces
+
+.navegacion__enlace:last-of-type {
+
+
+
+
+
+}
+
+
+
+
+
+4. :last-child
+
+------------------------------------------
+
+
+
+/* Selecciona cualquier <p> que sea el último elemento entre sus hermanos */
+
+
+
+p:last-child {
+
+  color: lime;
+
+}
+
+
+
+
+
+<div>
+
+  <p>Este texto no está seleccionado.</p>
+
+  <p>¡Este texto está seleccionado!</p>
+
+</div>
+
+
+
+
+
+5. :last-of-type
+
+-----------------------------------------------
+
+
+
+/* Selecciona cualquier <p> que sea el último elemento de su tipo entre sus hermanos */
+
+
+
+
+
+p:last-of-type {
+
+  color: lime;
+
+}
+
+
+
+article :last-of-type {
+
+  background-color: pink;
+
+}
+
+
+
+<article>
+
+  <div>Este `div` es primero.</div>
+
+  <div>¡Este <span>'span' anidado es el último</span>!</div>
+
+  <div>¡Este <em>`em` anidado es el primero</em>, pero este <em>`em` anidado es el último</em>!</div>
+
+  <b>¡Este `b` califica!</b>
+
+  <div>¡Este es el 'div' final!</div>
+
+</article>
+
+
+
+
+
+6. :nth-child
+
+---------------------------------------------------------
+
+
+
+/* Selecciona cada cuarto elemento entre
+
+   cualquier grupo de hermanos */
+
+:nth-child(4n) {
+
+  color: lime;
+
+}
+
+
+
+tr:nth-child(odd) o tr:nth-child(2n+1)
+
+Representa las filas impares de una tabla HTML: 1, 3, 5, etc.
+
+tr:nth-child(even) o tr:nth-child(2n)
+
+Representa las filas pares de una tabla HTML: 2, 4, 6, etc.
+
+:nth-child(7)
+
+Representa el séptimo elemento.
+
+:nth-child(5n)
+
+Representa los elementos 5, 10, 15, etc.
+
+:nth-child(3n+4)
+
+Representa los elementos 4, 7, 10, 13, etc.
+
+:nth-child(-n+3)
+
+Representa los primeros tres elementos entre un grupo de hermanos.
+
+p:nth-child(n)
+
+Representa cada elemento <p> entre un grupo de hermanos. Esto es lo mismo que un simple selector p.
+
+p:nth-child(1) o p:nth-child(0n+1)
+
+
+
+**********************************************************
+
+        SEUDO ELEMENTOS
+
+**********************************************************
+
+
+
+::before: sirve para añadir contenido antes de un elemento
+
+::after: sirve para añadir contenido después de un elemento
+
+::first-letter: selecciona la primera letra de un elemento de tipo «bloque» (es decir, los que tienen como display valores tipo block, inline-block, table-cell, etc)
+
+::first-line: selecciona la primera línea de un elemento que, como en el caso anterior, sea de tipo «bloque»
+
+::selection: hace referencia a las partes del documento que el visitante haya seleccionado
+
+
+
+Ejemplo:
+
+
+
+ul li {
+
+  display: inline;
+
+}
+
+
+
+ul li::after {
+
+    color: #21acde;
+
+    content: " | ";
+
+    display: inline-block;
+
+}
+
+
+
+UNO|DOS|TRES|
+
+
+
+ul li {
+
+  display: inline;
+
+}
+
+
+
+ul li::after {
+
+    color: #21acde;
+
+    content: " | ";
+
+    display: inline-block;
+
+}
+
+
+
+ul li:last-child::after {
+
+      display: none;
+
+}
+
+
+
+UNO|DOS|TRES
+
+
+
+**********************************************************
+
+        ELEMENTOS DE UNA LISTA SELECCIONAR IMPARES
+
+**********************************************************
+
+FORMA SENCILLA
+
+--------------------------------------------------------
+
+// fondo rojo para aquellos elementos imparess ODD
+
+.calendario li:nth-child(odd) {
+
+    background-color: red;
+
+    
+
+}
+
+
+
+// fondo rojo para aquellos elementos imparess ODD
+
+// 2*0 + 1 = 1
+
+// 2*1 + 1 = 3
+
+// darken es una propiedad de SASS de intensidad del color
+
+.calendario li:nth-child(2n+1) {
+
+    background-color: darken($verde, 10);
+
+    
+
+}
+
+
+
+**********************************************************
+
+        LOADING / PRELOAD / PREFETCH
+
+**********************************************************
+
+LOADING
+
+---------------------
+
+
+
+<img loading="lazy" src="img/blog3.jpg" alt="imagen blog">
+
+
+
+Hasta que no llegamos con la navegación hasta el elemento no lo descarga del servidor.
+
+
+
+
+
+PRELOAD
+
+-----------------------
+
+Cargamos todo lo que nos sea imprescindible según entremos en la página
+
+
+
+  <!-- PREFECH-->
+
+
+
+    <link rel="prefetch" href="nosotros.html" as="document">    
+
+    
+
+
+
+    <!-- PRELOAD-->
+
+    <link rel="preload" href="css/normalize.css" as="style">
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" crossorigin="crossorigin" as="font">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+    <link rel="preload" href="css/style.css" as="style">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+    <link rel="stylesheet" href="img/blog1.jpg" as="image">
+
+
+
+PREFETCH
+
+------------------------
+
+
+
+Precargamos la página que consideramos que va a ver el usuario de forma posterior a la que está viendo para mejorar la experiencia de usuario
+
+
+
+    <!-- PRELOAD-->
+
+
+
+    <link rel="prefetch" href="nosotros.html" as="document"> 
+
+
+
+**********************************************************
+
+        LAZY LOADING
+
+**********************************************************
+
+
+
+Con la ayuda de un script como LazyLoad, el navegador carga las imágenes y el resto de datos solo cuando estos aparecen en la ventana gráfica o viewport (el área visible) del usuario, por ejemplo, al desplazarse por la ventana del navegador o maximizarla.
+
+
+
+<picture>
+
+   <source srcset="img/blog1.webp" type="image/webp">
+
+   <img loading="lazy" src="img/blog1.jpg" alt="imagen blog">
+
+</picture>
+
+
+
+
+
+**********************************************************
+
+        MEJORAS CON IMAGEN
+
+**********************************************************
+
+
+
+ETIQUETA PICTURE DE HTML
+
+----------------------------------------------------------
+
+Si el navegador lo soporta nos carga primero webp por ser más ligero
+
+Si no lo soporta nos carga el jpg de toda la vida
+
+
+
+<picture>
+
+   <source srcset="img/blog1.webp" type="image/webp">
+
+   <img loading="lazy" src="img/blog1.jpg" alt="imagen blog">
+
+</picture>
+
+
+
+
+
+WEBP EN CSS
+
+------------------------------------------------------------
+
+Para cargar el webp y la alternativa en un css necesitamos de una archivo javascript llamado modernizr.js
+
+
+
+https://modernizr.com/download?setclasses&q=webp
+
+
+
+He incorporarlo en nuestra página web como un archivo de javascript normal
+
+<script src="js/modernizr.js"></script> 
+
+
+
+Ejemplo:
+
+
+
+/* si nuestro navegador soporta webp */
+
+.webp .header {
+
+    background-image: url(../img/banner.webp);
+
+}
+
+
+
+/* si el navegador no soporta webp */
+
+.no-webp .header{
+
+    background-image: url(../img/banner.jpg);
+
+}
+
+
+
+.header{
+
+    background-image: url(../img/banner.jpg);
+
+    height: 60rem;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+}
+
+
+
+
+
+**********************************************************
+
+        LIGHTHOUSE
+
+**********************************************************
+
+
+
+Herramienta SEO. Extensión de los navegadores.
+
+
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT
+
+**********************************************************
+
+
+
+VARIABLES
+
+--------------------------
+
+
+
+1. VAR: Actualmente en desuso
+
+2. LET: podemos crear la variable sin valor, asignala después o cambiarla
+
+3. CONST: el valor es constante y hay que iniciar el valor desde el inicio.
+
+
+
+// String o Cadenas de Texto
+
+
+
+const tweet = 'Aprendiendo JavaScript con el curso de Desarrollo Web Completo';
+
+const producto2 = 'Monitor HD"';
+
+const nombre = 'Juan Pablo';
+
+const email = 'correo@correo.com';
+
+
+
+STRING O CADENAS
+
+---------------------------------------
+
+// length es para la extension
+
+console.log(tweet.length);
+
+console.log(producto2);
+
+
+
+// IndexOf (retorna posición)
+
+console.log(tweet.indexOf('JavaScript'));
+
+console.log(producto2.indexOf('Tablet'));
+
+console.log(email.indexOf('@'));
+
+
+
+// Includes (retorna true o false)
+
+console.log(tweet.includes('JavaScript'));
+
+console.log(producto2.includes('Tablet'));
+
+
+
+OBJETO MATCH - OPERACIONES MATEMÁTCAS
+
+----------------------------------------------
+
+// Objeto Math
+
+
+
+let resultado;
+
+
+
+resultado = Math.PI;
+
+resultado = Math.round(2.5);
+
+resultado = Math.ceil(2.1); // Ceil siempre redondea hacia arriba
+
+resultado = Math.floor(2.9); // Floor siempre redondea hacia abajo
+
+resultado = Math.sqrt(144);
+
+resultado = Math.abs(-200);
+
+resultado = Math.min( 3, 5, 1, 8 , 2, 10 );
+
+resultado = Math.max( 3, 5, 1, 8 , 2, 10 );
+
+resultado = Math.random();
+
+resultado = Math.floor( Math.random() * 30 );
+
+
+
+console.log(resultado);
+
+
+
+CONCATENACIÓN
+
+--------------------------------------------------
+
+const nombre = 'Juan';
+
+const email = 'correo@correo.com';
+
+
+
+// Concatenación
+
+console.log("Nombre Cliente: " + nombre + " Email: " + email);
+
+
+
+// Template Strings - String Literals
+
+console.log(`Nombre Cliente: ${nombre} Email: ${email}`);
+
+
+
+**********************************************************
+
+        JAVASCRIPT - OBJETOS
+
+**********************************************************
+
+
+
+OBJETOS
+
+--------------------------------------------------
+
+// Objetos
+
+const producto = {
+
+    nombreProducto : "Monitor 20 Pulgadas",
+
+    precio: 300,
+
+    disponible: true
+
+}
+
+
+
+// console.log(producto.precio);
+
+// console.log(producto.nombreProducto);
+
+// console.log(producto.disponible);
+
+// console.log(producto["precio"]);
+
+
+
+// Agregar nuevas propiedades
+
+producto.imagen = 'imagen.jpg'; 
+
+
+
+// Eliminar propiedades
+
+delete producto.disponible;
+
+console.log(producto);
+
+
+
+DESTRUCTURING
+
+-----------------------------------------------------
+
+// Objetos
+
+const producto = {
+
+    nombreProducto : "Monitor 20 Pulgadas",
+
+    precio: 300,
+
+    disponible: true
+
+}
+
+
+
+// Forma anterior
+
+// const precioProducto = producto.precio;
+
+// const nombreProducto = producto.nombreProducto;
+
+
+
+// console.log(precioProducto);
+
+// console.log(nombreProducto);
+
+
+
+
+
+// Destructuring
+
+// Creamos la variable y sacamos la propiedad del objeto a la vez
+
+const {precio, nombreProducto } = producto;
+
+
+
+console.log(precio);
+
+console.log(nombreProducto);
+
+
+
+OBJECT METHODS
+
+---------------------------------------------------------
+
+// "use strict"; // Correr JS en modo estricto
+
+// Objetos
+
+const producto = {
+
+    nombreProducto : "Monitor 20 Pulgadas",
+
+    precio: 300,
+
+    disponible: true
+
+}
+
+
+
+//Object.freeze(producto); // .freeze no se puede añadir ni eliminar nuevas propiedades al objeto porque lo congelamos con freeze
+
+Object.seal(producto); // .seal no puedes añadir,ni eliminar pero si permite modificar
+
+
+
+
+
+producto.precio = 'NUEVO PRECIO'; 
+
+
+
+delete producto.precio;
+
+
+
+console.log(producto);
+
+
+
+UNIR DOS OBJETOS
+
+---------------------------------------------------------
+
+const producto = {
+
+    nombreProducto : "Monitor 20 Pulgadas",
+
+    precio: 300,
+
+    disponible: true
+
+}
+
+
+
+const medidas = {
+
+    peso: '1kg',
+
+    medida: '1m'
+
+}
+
+
+
+const nuevoProducto = { ...producto, ...medidas };
+
+
+
+console.log(producto);
+
+console.log(nuevoProducto);
+
+
+
+**********************************************************
+
+        JAVASCRIPT - ARREGLOS O ARRAYS
+
+**********************************************************
+
+// Arreglos o Arrays
+
+
+
+const numeros = [10,20,30,40,50];
+
+
+
+// Acceder a los valores de un arreglo
+
+// console.log(numeros[0]);
+
+// console.log(numeros[1]);
+
+// console.log(numeros[2]);
+
+// console.log(numeros[3]);
+
+// console.log(numeros[4]);
+
+
+
+// Conocer la extensión de un arreglo
+
+// console.log(meses.length);
+
+
+
+// numeros.forEach( function(numero) {
+
+//     console.log(numero);
+
+// })
+
+
+
+numeros.push(60,70,80); // Al final del arreglo
+
+numeros.unshift(-10,-20,-30); // al inicio del arreglo
+
+
+
+console.table(numeros);
+
+
+
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
+
+
+
+// meses.pop(); // elimina el último elemento
+
+// meses.shift(); // elimina el primer elemento
+
+
+
+// meses.splice(2, 1); // va a la posición 2 del arreglo y lo elimina
+
+// console.table(meses);
+
+
+
+Rest Operator o Spread Operator
+
+------------------------------------------------------
+
+Ahora se suele mantener el arreglo original, se crea uno nuevo y este se modifica.
+
+
+
+const nuevoArreglo = [...meses, 'Junio']; // parecido al push
+
+const nuevoArreglo = ['Junio', ...meses]; // parecido al shift
+
+console.log(nuevoArreglo);
+
+
+
+
+
+Methos Arrays
+
+---------------------------------------------------------
+
+
+
+// Array Methods
+
+
+
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
+
+
+
+const carrito = [
+
+    { nombre: 'Monitor 20 Pulgadas', precio: 500 },
+
+    { nombre: 'Televisión 50 Pulgadas', precio: 700 },
+
+    { nombre: 'Tablet', precio: 300 },
+
+    { nombre: 'Audifonos', precio: 200 },
+
+    { nombre: 'Teclado', precio: 50 },
+
+    { nombre: 'Celular', precio: 500},
+
+    { nombre: 'Bocinas', precio: 300},
+
+    { nombre: 'Laptop', precio: 800}
+
+];
+
+
+
+// forEach con Arrays simples funciona muy bien.
+
+meses.forEach(function(mes) {
+
+    if(mes == 'Marzo') {
+
+        console.log('Marzo si existe');
+
+    }
+
+});
+
+
+
+// Includes
+
+let resultado = meses.includes('Diciembre');
+
+
+
+// Some: ideal para arreglo de objetos
+
+resultado = carrito.some(function(producto) {
+
+    return producto.nombre === 'Celular PRO'
+
+})
+
+
+
+// Reduce: suma el precio total del carrito
+
+resultado = carrito.reduce(function(total, producto) {
+
+    return total + producto.precio
+
+}, 0);
+
+
+
+
+
+// Filter: sirve para obtener un elemento o varios con el ejemplo de abajo
+
+resultado = carrito.filter(function(producto) {
+
+    return producto.precio > 400
+
+});
+
+
+
+resultado = carrito.filter(function(producto) {
+
+    return producto.nombre !== 'Celular'
+
+});
+
+
+
+console.log(resultado);
+
+
+
+**********************************************************
+
+        JAVASCRIPT - FUNCIONES
+
+**********************************************************
+
+Declaración de Función
+
+------------------------------------------------------
+
+sumar();
+
+function sumar() {
+
+    console.log(10 + 10);
+
+}
+
+
+
+Expresión de la función
+
+-----------------------------------------------------
+
+sumar2();
+
+const sumar2 = function() {
+
+    console.log( 3 + 3);
+
+}
+
+
+
+IIFE
+
+------------------------------------------------------------
+
+IIFE: funcione que se llaman a si mismas y no puedan ser llamadas desde otro archivo de js
+
+
+
+
+
+(function(){
+
+    console.log('Este es una función');
+
+
+
+})();
+
+
+
+MÉTODOS Y FUNCIONES
+
+-------------------------------------------------------------
+
+const numero1 = 20;
+
+const numero2 = "20";
+
+
+
+console.log( parseInt(numero2) ); // parseInt() es una función
+
+console.log( numero1.toString() ); // .toString() es un método
+
+
+
+
+
+MÉTODOS DE PROPIEDAD
+
+---------------------------------------------------------------
+
+
+
+// Métodos de propiedad SIEMPRE TIENES QUE SER UN OBJETO
+
+const reproductor = {
+
+    reproducir : function(id) {
+
+        console.log(`Reproduciendo Canción con el ID: ${id}`)
+
+    },
+
+    pausar: function() {
+
+        console.log('Pausando...')
+
+    },
+
+    crearPlaylist: function(nombre) {
+
+        console.log(`Creando la playlist: ${nombre}`)
+
+    },
+
+    reproducirPlaylist: function(nombre) {
+
+        console.log(`Reproduciendo la playlist: ${nombre}`)
+
+    },
+
+}
+
+
+
+reproductor.borrarCancion = function(id) {
+
+    console.log(`Eliminando la canción: ${id}`)
+
+}
+
+
+
+reproductor.reproducir(3840);
+
+reproductor.pausar();
+
+reproductor.borrarCancion(20);
+
+reproductor.crearPlaylist('Heavy Metal');
+
+reproductor.reproducirPlaylist('Heavy Metal');
+
+
+
+ARROW FUNCTIONS
+
+----------------------------------------------------------------------
+
+// Arrow Functions
+
+
+
+const sumar2 = function(n1, n2) {
+
+    console.log(n1 +n2);
+
+}
+
+
+
+
+
+const sumar2 = (n1, n2) => console.log( n1 + n2);
+
+sumar2(5, 10);
+
+
+
+// Arrow Functions sintaxis básica
+
+
+
+const aprendiendo = (parametros) => {}
+
+
+
+Ejemplo:
+
+
+
+const aprendiendo = (tecnologia) => {
+
+	console.log(`Aprendiendo ${tecnologia}`)
+
+}
+
+
+
+Si solo tenemos una línea podemos simplificar así
+
+
+
+const aprendiendo = tecnologia =>console.log(`Aprendiendo ${tecnologia}`);
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT - ESTRUCTURAS DE CONTROL
+
+**********************************************************
+
+
+
+IF
+
+---------------------------------------------------------
+
+const rol = 'VISITANTE';
+
+
+
+if(rol === 'ADMINISTRADOR') {
+
+    console.log('Acceso a todo el sistema');
+
+} else if(rol === 'EDITOR') {
+
+    console.log('Eres editor, puedes entrar pero no puedes hacer mucho')
+
+} else {
+
+    console.log('No tienes acceso')
+
+}
+
+
+
+SWITCH
+
+-------------------------------------------------------------
+
+const metodoPago = 'efectivo';
+
+
+
+switch(metodoPago) {
+
+    case 'tarjeta':
+
+        console.log('Pagaste con tarjeta');
+
+        break;
+
+    case 'cheque':
+
+        console.log('El usuario va a pagar con cheque, revisaremos los fondos primero');
+
+        break;
+
+    case 'efectivo':
+
+        console.log('Pagaste con efectivo');
+
+        break;
+
+    default:
+
+        console.log('Aún no has pagado');
+
+        break;
+
+}
+
+
+
+FOR LOOPS
+
+-------------------------------------------------------------
+
+
+
+For Loop
+
+
+
+ for( let i = 0; i < 10; i++ ) {
+
+    console.log(i);
+
+ }
+
+
+
+ for( let i = 1; i <= 100; i++ ) {
+
+     if( i % 2 === 0 ) {
+
+         console.log(`El Número ${i} es PAR`);
+
+     } else {
+
+         console.log(`El Número ${i} es IMPAR`);
+
+     }
+
+ }
+
+
+
+const carrito = [
+
+    { nombre: 'Monitor 20 Pulgadas', precio: 500 },
+
+    { nombre: 'Televisión 50 Pulgadas', precio: 700 },
+
+    { nombre: 'Tablet', precio: 300 },
+
+    { nombre: 'Audifonos', precio: 200 },
+
+    { nombre: 'Teclado', precio: 50 },
+
+    { nombre: 'Celular', precio: 500},
+
+    { nombre: 'Bocinas', precio: 300},
+
+    { nombre: 'Laptop', precio: 800}
+
+];
+
+
+
+for(let i = 0; i < carrito.length; i++ ) {
+
+    console.log( carrito[i].nombre );
+
+}
+
+
+
+
+
+WHILE / DO WHILE
+
+-------------------------------------------------------------
+
+
+
+
+
+//While Loop
+
+
+
+ let i = 20; // Indice
+
+
+
+ while(i < 10) { // Condición
+
+
+
+     console.log('Desde el while loop');
+
+
+
+     i++;  // Incremento
+
+ }
+
+
+
+
+
+// Do While Loop
+
+
+
+let i = 100;
+
+
+
+do {
+
+    console.log(i);
+
+
+
+    i++;
+
+} while( i < 10);
+
+
+
+
+
+FOREACH/ MAP
+
+-------------------------------------------------------------
+
+
+
+const carrito = [
+
+    { nombre: 'Monitor 20 Pulgadas', precio: 500 },
+
+    { nombre: 'Televisión 50 Pulgadas', precio: 700 },
+
+    { nombre: 'Tablet', precio: 300 },
+
+    { nombre: 'Audifonos', precio: 200 },
+
+    { nombre: 'Teclado', precio: 50 },
+
+    { nombre: 'Celular', precio: 500},
+
+    { nombre: 'Bocinas', precio: 300},
+
+    { nombre: 'Laptop', precio: 800}
+
+];
+
+
+
+// ForEach
+
+ForEach: sirve más para imprimir los elemento en html o en consola
+
+
+
+carrito.forEach(function(producto){
+
+	console.log(`${producto.nombre} - ${producto.precio}`);
+
+});
+
+
+
+carrito.forEach( producto => console.log(producto.nombre)); // arrow function
+
+
+
+// map
+
+map: nos crea un nuevo arreglo que en el ejemplo se llama arreglo 2.
+
+const arreglo2 = carrito.map( producto => `${producto.nombre} - ${producto.precio}`);
+
+
+
+console.log(arreglo2);
+
+
+
+
+
+THIS EN JAVASCRIPT
+
+-------------------------------------------------------------
+
+
+
+// This: DENTRO DEL OBJETO LA VARIABLE
+
+const reservacion = {
+
+    nombre: 'Juan',
+
+    apellido: 'De la torre',
+
+    total: 5000,
+
+    pagado: false,
+
+    informacion: function() {
+
+        console.log(`El Cliente ${this.nombre} reservó y su cantidad a pagar es de ${this.total}`);
+
+    }
+
+}
+
+
+
+const reservacion2 = {
+
+    nombre: 'Pedro',
+
+    apellido: 'De la torre',
+
+    total: 5000,
+
+    pagado: false,
+
+    informacion: function() {
+
+        console.log(`El Cliente ${this.nombre} reservó y su cantidad a pagar es de ${this.total}`);
+
+    }
+
+}
+
+
+
+reservacion.informacion();
+
+reservacion2.informacion();
+
+
+
+
+
+**********************************************************************
+
+        JAVASCRIPT - PROGRAMACIÓN ORIENTADA A OBJETOS POO
+
+**********************************************************************
+
+
+
+/** Object Literal */
+
+const producto = {
+
+    nombre: 'Tablet',
+
+    precio: 500
+
+}
+
+
+
+// Object Constructor
+
+function Cliente(nombre, apellido) {
+
+    this.nombre = nombre;
+
+    this.apellido = apellido;
+
+}
+
+
+
+
+
+Utilización this
+
+-------------------
+
+
+
+// This
+
+const reservacion = {
+
+    nombre: 'Juan',
+
+    apellido: 'De la torre',
+
+    total: 5000,
+
+    pagado: false,
+
+    informacion: function() {
+
+        console.log(`El Cliente ${this.nombre} reservó y su cantidad a pagar es de ${this.total}`);
+
+    }
+
+}
+
+
+
+**********************************************************
+
+        JAVASCRIPT - PROTOTYPE
+
+**********************************************************
+
+// Object Constructor
+
+function Cliente(nombre, apellido) {
+
+    this.nombre = nombre;
+
+    this.apellido = apellido;
+
+}
+
+Cliente.prototype.formatearCliente = function() {
+
+    return `El Cliente ${this.nombre} ${this.apellido}`;
+
+}
+
+**********************************************************
+
+        JAVASCRIPT - CLASES
+
+**********************************************************
+
+// Classes
+
+
+
+
+
+class Producto {
+
+    constructor(nombre, precio) {
+
+        this.nombre = nombre;
+
+        this.precio = precio;
+
+    }
+
+
+
+    formatearProducto() {
+
+        return `El Producto ${this.nombre} tiene un precio de: $ ${this.precio}`;
+
+    }
+
+}
+
+
+
+const producto2 = new Producto('Monitor Curvo de 49"', 800);
+
+const producto3 = new Producto('Laptop', 300);
+
+
+
+// Herencia
+
+class Libro extends Producto {
+
+    constructor(nombre, precio, isbn) {
+
+        super(nombre, precio); // hereda el constructor padre
+
+        this.isbn = isbn;
+
+    }
+
+
+
+    formatearProducto() {
+
+        return `${super.formatearProducto() } y su ISBN es ${this.isbn}`;
+
+    }
+
+}
+
+
+
+const libro = new Libro('JavaScript la Revolución', 120, '910313981389139');
+
+console.log(libro.formatearProducto() );
+
+console.log(producto2.formatearProducto());
+
+
+
+**********************************************************
+
+        JAVASCRIPT - TRY - CATCH
+
+**********************************************************
+
+Lo que nos hace este método es que siel número 2 nos da error, el código sigue y nos indica el error.
+
+Se utilizar en conexiones de base de datos, para cargar json, etc. Aunque nos de un error todo lo demás
+
+funciona.
+
+
+
+
+
+const numero1 = 20;
+
+const numero3 = 30;
+
+
+
+
+
+console.log(numero1);
+
+
+
+try {
+
+    console.log(numero2);
+
+} catch (error) {
+
+    console.log(error);
+
+}
+
+
+
+console.log(numero3);
+
+
+
+**********************************************************
+
+        JAVASCRIPT - PROMISES
+
+**********************************************************
+
+
+
+const usuarioAutenticado = new Promise( (resolve, reject) => {
+
+    const auth = true;
+
+
+
+    if(auth) {
+
+        resolve('Usuario Autenticado'); // EL PROMISE SE CUMPLE
+
+    } else {
+
+        reject('No se pudo iniciar sesión'); // el promise no se cumple
+
+    }
+
+});
+
+
+
+usuarioAutenticado
+
+    .then( resultado => console.log(resultado))
+
+    .catch( error => console.log(error))
+
+
+
+
+
+// En los Promises existen 3 valores
+
+// Pending : No se ha cumplido pero tampoco se ha rechazado
+
+// Fulfilled : Ya se cumplio
+
+// Rejected : Se ha rechazado o no se pudo cumplir
+
+
+
+**********************************************************
+
+        JAVASCRIPT - PERMITIR NOTIFICACIONES
+
+**********************************************************
+
+Pedimos al usuario que nos de permiso para enviar notificaciones.
+
+
+
+const boton = document.querySelector('#boton');
+
+
+
+Notification: es una función nativa de Javascript. Y de la siguiente manera
+
+se utiliza:
+
+
+
+boton.addEventListener('click', () => {
+
+    Notification.requestPermission()
+
+        .then(resultado => console.log(`El resultado es ${resultado}`) )
+
+})
+
+
+
+
+
+// la notificación tiene que está aceptada para que puede enviarse: granted
+
+if(Notification.permission == 'granted') {
+
+    new Notification('Esta es una notificación', {
+
+        icon: 'img/ccj.png',
+
+        body: 'Código con Juan, los mejores tutoriales'
+
+    })
+
+}
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT - // Async / await
+
+**********************************************************
+
+Código asíncrono.
+
+
+
+Cuando se llama a una función async, esta devuelve un elemento Promise. Cuando la función async devuelve un valor, Promise se resolverá con el valor devuelto. Si la función async genera una excepción o algún valor, Promise se rechazará con el valor generado.
+
+
+
+Una función async puede contener una expresión await, la cual pausa la ejecución de la función asíncrona y espera la resolución de la Promise pasada y, a continuación, reanuda la ejecución de la función async y devuelve el valor resuelto
+
+
+
+La FINALIDAD DE LAS FUNCIONES async/await es simplificar el comportamiento del uso síncrono de promesas y realizar algún comportamiento específico en un grupo de Promises. Del mismo modo que las Promises son semejantes a las devoluciones de llamadas estructuradas, async/await se asemejan a una combinación de generadores y promesas.
+
+
+
+// Async / await
+
+
+
+function descargarNuevosClientes() {
+
+    return new Promise( resolve => {
+
+        console.log('Descargando clientes... espere...');
+
+
+
+        setTimeout( () => {
+
+            resolve('Los Clientes fueron Descargados');
+
+        }, 5000 );
+
+    });
+
+}
+
+
+
+function descargarUltimosPedidos() {
+
+    return new Promise( resolve => {
+
+        console.log('Descargando pedidos... espere...');
+
+
+
+        setTimeout( () => {
+
+            resolve('Los Pedidos fueron Descargados');
+
+        }, 3000 );
+
+    });
+
+}
+
+
+
+async function app() {
+
+   try {
+
+    //    const clientes = await descargarNuevosClientes();
+
+    //    const pedidos = await descargarUltimosPedidos();
+
+    //    console.log(clientes);
+
+    //    console.log(pedidos);
+
+
+
+    const resultado = await Promise.all([ descargarNuevosClientes(), descargarUltimosPedidos() ]);
+
+    console.log(resultado[0]);
+
+    console.log(resultado[1]);
+
+   } catch (error) {
+
+       console.log(error);
+
+   }
+
+
+
+  
+
+}
+
+
+
+app();
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT - // Fetch API
+
+**********************************************************
+
+
+
+Igual que Ajax te permite enviar informacón al servidor u obtener información de un servidor.
+
+
+
+Envia los datos sin tener que recargar la página.
+
+
+
+Igual que Ajax nos permite enviar información al servidor u obtener informacón de un servidor. Puedes
+
+obtener un archivo local o una respuesta de un servidor (Texto o JSON).
+
+
+
+Al igual que todas la s API's Modernas de JavaScript utiliza Promise o también async/await
+
+
+
+JSON: Es Javascript Object Notation. Lenguaje de transporte de datos.
+
+
+
+EJEMPLO PARA OBTENER INFORMACIÓN DE UN JSON CON PROMISES
+
+function obtenerEmpleados() {
+
+
+
+    const archivo = 'empleados.json';
+
+
+
+    fetch(archivo)
+
+        .then( resultado => resultado.json())
+
+        .then( datos => {
+
+
+
+            console.log(datos.empleados);
+
+
+
+            const { empleados } = datos;
+
+
+
+            console.log(empleados);
+
+
+
+            empleados.forEach(empleado => {
+
+                console.log(empleado);
+
+                console.log(empleado.id);
+
+                console.log(empleado.nombre);
+
+                console.log(empleado.puesto);
+
+
+
+                document.querySelector('.contenido').innerHTML +=`<br>ID: ${empleado.id} Nombre: ${empleado.nombre} Puesto: ${empleado.puesto}`;
+
+                
+
+            });
+
+
+
+            
+
+});
+
+
+
+
+
+}
+
+obtenerEmpleados();
+
+
+
+// EJEMPLO PARA OBTENER INFORMA DE UN JSON DE FORMA ASÍNCRONA  Async / await
+
+
+
+async function obtenerEmpleados() {
+
+
+
+    const archivo = 'empleados.json';
+
+
+
+    const resultado = await fetch(archivo);
+
+    const datos = await resultado.json();
+
+
+
+    const { empleados } = datos;
+
+    empleados.forEach(empleado => {
+
+        document.querySelector('.contenido').innerHTML +=`<br>ID: ${empleado.id} Nombre: ${empleado.nombre} Puesto: ${empleado.puesto}`;
+
+        
+
+    });
+
+}
+
+obtenerEmpleados();
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT - // ELEMENTOS DEL DOM
+
+**********************************************************
+
+
+
+/**
+
+ * Seleccionar elementos
+
+ */
+
+
+
+// querySelector
+
+
+
+const textoHeading = document.querySelector('.header__texto h2');
+
+console.log(textoHeading);
+
+
+
+textoHeading.textContent = 'Nuevo Heading'; // También se puede utilizar .text
+
+
+
+// querySelectorAll
+
+const enlaces = document.querySelectorAll('.navegacion a');
+
+console.log(enlaces);
+
+
+
+// Algunas operaciones...
+
+
+
+// Cambiar el texto
+
+enlaces[0].textContent = 'Nuevo Texto enlace';
+
+
+
+// Cambiar el enlace del primer enlace
+
+enlaces[0].href = 'google.com';
+
+
+
+// Agregar una clase...
+
+enlaces[0].classList.add('nueva-clase');
+
+
+
+// Eliminar una clase...
+
+// enlaces[0].classList.remove('navegacion__enlace');
+
+
+
+*************************************
+
+ Generar HTML desde JavaScript...
+
+***************************************
+
+
+
+// Ejemplo crear un nuevo enlace
+
+const nuevoEnlace = document.createElement('A');
+
+
+
+console.log(nuevoEnlace);
+
+
+
+// Un enlace tiene una clase...
+
+nuevoEnlace.classList.add('navegacion__enlace');
+
+
+
+// Tiene un href
+
+nuevoEnlace.href = 'nuevo-enlace.html';
+
+
+
+// Tiene un Texto...
+
+nuevoEnlace.textContent = 'Un Nuevo Enlace';
+
+
+
+// console.log(nuevoEnlace);
+
+
+
+// Finalmente se agrega donde lo deseamos colocar...
+
+
+
+// Tienes que seleccionar el elemento padre
+
+
+
+const navegacion = document.querySelector('.navegacion');
+
+navegacion.appendChild(nuevoEnlace);
+
+
+
+
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT EVENTOS
+
+**********************************************************
+
+
+
+Cargar todos los Eventos
+
+----------------------------------------------------------
+
+// Cuando el Archivo JS y los archivos dependientes han cargado como es el HTML y las imagenes...
+
+
+
+window.addEventListener('load', function() { 
+
+    console.log('2');
+
+});
+
+
+
+window.onload = function() {
+
+    console.log('3')
+
+};
+
+
+
+
+
+// Este se ejecuta cuando el HTML ha sido descargado pero no espera por CSS o imagenes...
+
+// Este es más rápido
+
+document.addEventListener('DOMContentLoaded', function() { 
+
+    console.log('4');
+
+});
+
+
+
+
+
+Eventos Scroll
+
+------------------------------------------------------------
+
+window.onscroll = function(e) {
+
+
+
+     console.log('scrolling...');
+
+
+
+     console.log(this.scrollY); 
+
+}´
+
+
+
+Prevenir el evento por Defecto
+
+---------------------------------------------------------------
+
+btnEnviar.addEventListener('click', function(evento){
+
+    evento.preventDefault();
+
+    console.log('enviando formulario')
+
+});
+
+
+
+btnEnviar.addEventListener('click', function(e){
+
+    e.preventDefault();
+
+    console.log('enviando formulario')
+
+});
+
+
+
+Validación en tiempo real
+
+-------------------------------------------------------------
+
+
+
+const nombre = document.querySelector('#nombre');
+
+
+
+A tiempo real:
+
+
+
+nombre.addEventListener('input', function(e){
+
+    console.log(e.target.value); // leemos lo que se escribe en el input
+
+});
+
+
+
+Al cambio del campo
+
+
+
+nombre.addEventListener('change', function(){
+
+    console.log('escribiendo...')
+
+});
+
+
+
+Con varios campos:
+
+
+
+// OBJETO:
+
+
+
+const datos = {
+
+    nombre: '',
+
+    email: '',
+
+    mensaje: ''
+
+}
+
+
+
+// Eventos de los Inputs...
+
+
+
+const nombre = document.querySelector('#nombre');
+
+const email = document.querySelector('#email');
+
+const mensaje = document.querySelector('#mensaje');
+
+
+
+
+
+nombre.addEventListener('input', leerTexto);
+
+email.addEventListener('input', leerTexto);
+
+mensaje.addEventListener('input', leerTexto);
+
+
+
+function leerTexto(e) {
+
+    // console.log(e);
+
+    // console.log(e.target.value);
+
+
+
+    
+
+    // para añadir a un objeto la información de los campos a un formulario
+
+    datos[e.target.id] = e.target.value;
+
+
+
+    console.log(datos);
+
+}
+
+
+
+
+
+EVENTO DE SUBMIT - comprobaciones
+
+------------------------------------------------------
+
+
+
+// submit
+
+const formulario = document.querySelector('.formulario');
+
+
+
+formulario.addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+
+
+    console.log(e);
+
+
+
+    console.log('Di click y la página ya no recarga');
+
+
+
+    console.log(datos);
+
+
+
+    // Validar el Formulario...
+
+
+
+    const { nombre, email, mensaje } = datos;
+
+
+
+    if(nombre === '' || email === '' || mensaje === '' ) {
+
+        console.log('Al menos un campo esta vacio');
+
+        mostrarError('Todos los campos son obligatorios');
+
+        return; // Detiene la ejecución de esta función
+
+    }
+
+
+
+    console.log('Todo bien...')
+
+
+
+    mostrarMensaje('Mensaje enviado correctamente');
+
+});
+
+
+
+
+
+function mostrarMensaje(mensaje) {
+
+    const alerta = document.createElement('p');
+
+    alerta.textContent = mensaje;
+
+    alerta.classList.add('correcto');
+
+    formulario.appendChild(alerta);
+
+
+
+    setTimeout(() => {
+
+        alerta.remove();
+
+    }, 3000);
+
+}
+
+
+
+function mostrarError(mensaje) {
+
+    const alerta = document.createElement('p');
+
+    alerta.textContent = mensaje;
+
+    alerta.classList.add('error');
+
+
+
+    formulario.appendChild(alerta);
+
+
+
+    setTimeout(() => {
+
+        alerta.remove();
+
+    }, 3000);
+
+}
+
+
+
+****************************************************************
+
+        SCROLLING  - scrollIntoView landing page - secciones
+
+****************************************************************
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    scrollNav();    
+
+});
+
+
+
+function scrollNav() {
+
+
+
+    const enlaces = document.querySelectorAll('.navegacion-principal a');
+
+    
+
+    enlaces.forEach( function(enlace) {
+
+        enlace.addEventListener('click', function(e) {
+
+            e.preventDefault();
+
+            const seccion = document.querySelector(e.target.attributes.href.value);
+
+            seccion.scrollIntoView({
+
+                behavior: 'smooth',
+
+            });
+
+
+
+
+
+        });     
+
+
+
+    });
+
+
+
+}
+
+
+
+****************************************************************
+
+       FIJAR LA CABECERA EN LA PARTE DE ARRIBA
+
+****************************************************************
+
+function navegacionFija() { 
+
+
+
+    const barra = document.querySelector('.header');
+
+
+
+    // Registrar un elemento a observar
+
+
+
+    const observer = new IntersectionObserver( function(entries) {
+
+        if(entries[0].isIntersecting){
+
+            barra.classList.remove('fijo');
+
+        } else {
+
+            barra.classList.add('fijo');
+
+        }
+
+    });
+
+
+
+    observer.observe(document.querySelector('.sobre-festival'));
+
+
+
+    
+
+    // Elemento a observar
+
+
+
+}
+
+
+
+Parte de css
+
+--------------------------------
+
+
+
+header .fijo {
+
+        position: fixed;
+
+        width: 100%;
+
+        box-shadow: 0 .3rem .4rem #444;
+
+    }
+
+
+
+
+
+**********************************************************
+
+        INSTALACIÓN DE GULP 
+
+*********************************************************
+
+
+
+SIGO LOS PASOS DEL CURSO
+
+npm install -g gulp //installing gulp globally
+
+npm init //initialization 
+
+npm install --save-dev gulp //installing gulp locally - dev utility
+
+
+
+SOLUCIÓN: https://github.com/dlmanning/gulp-sass/issues/438
+
+CUANDO ME DA ERROR LO SOLUCIONO CON ESTOS COMANDOS.
+
+npm install -g npm-install-all 
+
+npm-install-all gulpfile.js //Installing all required modules from gulpfile.js 
+
+
+
+
+
+gulpfile.js
+
+----------------------------------------------------------------
+
+const { series, src, dest, watch } = require('gulp');
+
+const sass = require('gulp-sass')(require('sass'));
+
+const imagemin = require('gulp-imagemin');
+
+const notificacion = require('gulp-notify');
+
+
+
+sass.compiler = require('dart-sass');
+
+
+
+// función por lo que nos pasa el sass a un css compilado
+
+function compilarSASS(){
+
+	return src("./src/scss/app.scss")
+
+		.pipe( sass() )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+
+
+// función que nos siver para minificar el css como archivo para subir al servidor
+
+function minificarcss(){
+
+	return src("./src/scss/app.scss")
+
+		.pipe( sass({
+
+			outputStyle: 'compressed'
+
+		}) )
+
+		.pipe( dest("./build/css") );
+
+}
+
+// función para minificar las imagenes y quitar peso a las mismas
+
+function imagenes(){
+
+	return src('src/img/**/*')
+
+		.pipe( imagemin() )
+
+		.pipe( dest("./build/img") )
+
+		.pipe( notificacion({ message: 'Imagen Minificada'}) );
+
+}
+
+
+
+// función de alerta para observar los cambios de compilación
+
+function watchArchivos(){
+
+	watch( "./src/scss/**/*.scss", compilarSASS);
+
+}
+
+
+
+// para ejecutar las funciones con gulp
+
+
+
+// gulp compilarSASS
+
+// gulp minificarcss
+
+// gulp imagenes
+
+// gulp watchArchivos
+
+
+
+exports.compilarSASS = compilarSASS;
+
+exports.minificarcss = minificarcss;
+
+exports.imagenes = imagenes;
+
+exports.watchArchivos = watchArchivos;
+
+
+
+// función por defecto que ejecuta otras tres funciones:
+
+// gulp 
+
+
+
+exports.default = series( compilarSASS, imagenes, watchArchivos );
+
+
+
+
+
+
+
+
+
+**********************************************************
+
+        COMANDOS DE GULP 
+
+*********************************************************
+
+
+
+https://gulpjs.com/plugins/
+
+
+
+
+
+INSTALACIÓN GLOBAL
+
+-----------------------------------------------------------
+
+npm install --global gulp-cli
+
+
+
+CREAR UN ARCHIVO Package.json EN NUESTRO DIRECTORIO
+
+-----------------------------------------------------------
+
+npm init
+
+
+
+INSTALAR EL PAQUETE DE GULP EN SU DEV DEPENDENCIES
+
+-----------------------------------------------------------
+
+npm install --save-dev gulp
+
+
+
+RECUPERAR CARPETA NODE_MODULES
+
+-----------------------------------------------------------
+
+npm install
+
+
+
+
+
+**********************************************************
+
+        ARCHIVO GULPFILE.JS
+
+*********************************************************
+
+gulpfile.js - más básico
+
+------------------------------------------------------------
+
+const { series, src, dest, watch } = require('gulp');
+
+const sass = require('gulp-sass')(require('sass'));
+
+
+
+sass.compiler = require('dart-sass');
+
+
+
+function compilarSASS(){
+
+	return src("./src/scss/app.scss")
+
+		.pipe( sass() )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+function minificarcss(){
+
+	return src("./src/scss/app.scss")
+
+		.pipe( sass({
+
+			outputStyle: 'compressed'
+
+		}) )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+function watchArchivos(){
+
+	// el scss/*.scss lo que hace es que escuche todos los archivos que están
+
+	// en la carpeta scss
+
+	watch( "./src/scss/*.scss", compilarSASS);
+
+	// todas los archivos con varias carpetas
+
+	watch( "./src/scss/**/*.scss", compilarSASS);
+
+
+
+}
+
+
+
+exports.compilarSASS = compilarSASS;
+
+exports.minificarcss = minificarcss;
+
+exports.watchArchivos = watchArchivos;
+
+
+
+
+
+
+
+Drm@2024
+
+
+
+
+
+gulpfile.js - más Complejo
+
+------------------------------------------------------------
+
+
+
+const { series, src, dest, watch } = require('gulp');
+
+const sass = require('gulp-sass')(require('sass'));
+
+const imagemin = require('gulp-imagemin');
+
+const notificacion = require('gulp-notify');
+
+const webp = require('gulp-webp');
+
+
+
+sass.compiler = require('dart-sass');
+
+
+
+const paths = {
+
+	imagenes: 'src/img/**/*',
+
+	scss: 'src/scss/**/*.scss',
+
+}
+
+
+
+function compilarSASS(){
+
+	return src(paths.scss)
+
+		.pipe( sass() )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+function minificarcss(){
+
+	return src(paths.scss)
+
+		.pipe( sass({
+
+			outputStyle: 'compressed'
+
+		}) )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+function imagenes(){
+
+	return src(paths.imagenes)
+
+		.pipe( imagemin() )
+
+		.pipe( dest("./build/img") )
+
+		.pipe( notificacion({ message: 'Imagen Minificada'}) );
+
+}
+
+
+
+function versionWebp(){
+
+	return src(paths.imagenes)
+
+		.pipe( webp() )
+
+		.pipe( dest("./build/img") )
+
+		.pipe( notificacion({ message: 'Versión webp lista'}) );
+
+}
+
+
+
+function watchArchivos(){
+
+	watch( paths.scss, compilarSASS);
+
+}
+
+
+
+exports.compilarSASS = compilarSASS;
+
+exports.minificarcss = minificarcss;
+
+exports.imagenes = imagenes;
+
+exports.versionWebp = versionWebp;
+
+exports.watchArchivos = watchArchivos;
+
+
+
+exports.default = series( compilarSASS, imagenes, versionWebp, watchArchivos );
+
+
+
+gulpfile.js - más funcionalidades
+
+------------------------------------------------------
+
+const { series, src, dest, watch } = require('gulp');
+
+const sass = require('gulp-sass')(require('sass'));
+
+const imagemin = require('gulp-imagemin');
+
+const notificacion = require('gulp-notify');
+
+const webp = require('gulp-webp');
+
+const concat = require('gulp-concat');
+
+
+
+sass.compiler = require('dart-sass');
+
+
+
+const paths = {
+
+	imagenes: 'src/img/**/*',
+
+	scss: 'src/scss/**/*.scss',
+
+	js: 'src/js/**/*.js',
+
+}
+
+
+
+function compilarSASS(){
+
+	return src(paths.scss)
+
+		.pipe( sass() )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+function minificarcss(){
+
+	return src(paths.scss)
+
+		.pipe( sass({
+
+			outputStyle: 'compressed'
+
+		}) )
+
+		.pipe( dest("./build/css") );
+
+}
+
+
+
+function javascript(){
+
+	return src(paths.js)
+
+	.pipe( concat('bundle.js') )
+
+	.pipe( dest("./build/js") )
+
+}
+
+
+
+function imagenes(){
+
+	return src(paths.imagenes)
+
+		.pipe( imagemin() )
+
+		.pipe( dest("./build/img") )
+
+		.pipe( notificacion({ message: 'Imagen Minificada'}) );
+
+}
+
+
+
+function versionWebp(){
+
+	return src(paths.imagenes)
+
+		.pipe( webp() )
+
+		.pipe( dest("./build/img") )
+
+		.pipe( notificacion({ message: 'Versión webp lista'}) );
+
+}
+
+
+
+function watchArchivos(){
+
+	watch( paths.scss, compilarSASS);
+
+	watch( paths.js, javascript);
+
+}
+
+
+
+exports.compilarSASS = compilarSASS;
+
+exports.minificarcss = minificarcss;
+
+exports.imagenes = imagenes;
+
+exports.versionWebp = versionWebp;
+
+exports.javascript = javascript;
+
+exports.watchArchivos = watchArchivos;
+
+
+
+exports.default = series( compilarSASS, javascript, imagenes, versionWebp, watchArchivos );
+
+
+
+**********************************************************
+
+        CONVERTIR JPG A WEBP
+
+**********************************************************
+
+https://ezgif.com
+
+https://ezgif.com/jpg-to-webp
+
+
+
+
+
+
+
+
+
+**********************************************************
+
+        JAVASCRIPT - JUEGO - TECLADO
+
+**********************************************************
+
+
+
+document.addEventListener('keydown', function(event){
+
+
+
+   let clave = event.code;
+
+
+
+   console.log(" La clave es: " + clave);
+
+
+
+});
+
+
+
+Eventos del ratón
+
+--------------------------------------------------------------
+
+function inicializar(){
+
+    // Escenario
+
+    const miCanvas = document.getElementById('canvas');
+
+
+
+    //pulsaciones del ratón
+
+    miCanvas.addEventListener('mousedown', clicRaton, false);
+
+
+
+    miCanvas.addEventListener('mouseup', sueltaRaton, false);
+
+
+
+    miCanvas.addEventListener('mousemove', posicionRaton, false);
+
+}
+
+
+
+function posicionRaton(e){
+
+    let x = e.pageX;
+
+    let y = e.pageY;
+
+
+
+    console.log(`x: ${x} - y: ${y}`);
+
+}
+
+
+
+function clicRaton(e){
+
+    console.log('Pulsando raton');
+
+}
+
+
+
+function sueltaRaton(e){
+
+    console.log('Ratón liberado');
+
+
+
+CANVAS
+
+-------------------------------------------------------------------
+
+    function draw() {
+
+      var canvas = document.getElementById("canvas");
+
+      if (canvas.getContext) {
+
+        var ctx = canvas.getContext("2d"); // FORMATO DE PANTALLA
+
+
+
+        ctx.fillStyle = "rgb(200,0,0)";
+
+        ctx.fillRect (10, 10, 55, 50);
+
+
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+
+        ctx.fillRect (30, 30, 55, 50);
+
+      }
+
+    }
+
+  
+
+
+
+/*
+
+https://developer.mozilla.org/es/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+
+
+
+fillRect(x, y, width, height)
+
+    Dibuja un rectángulo relleno.
+
+strokeRect(x, y, width, height)
+
+    Dibuja el contorno de un rectángulo.
+
+clearRect(x, y, width, height)
+
+    Borra un área rectangular especificada, dejándola totalmente transparente. 
+
+
+
+
+
+beginPath()
+
+    Crea un nuevo trazo. Una vez creado, los comandos de dibujo futuros son aplicados dentro del trazo y usados para construir el nuevo trazo hacia arriba.
+
+closePath()
+
+    Cierra el trazo de tal forma que los comandos de dibujo futuros son, una vez más redireccionados al contexto.
+
+stroke()
+
+    Dibuja el contorno de la forma.
+
+fill()
+
+    Dibuja una forma solida rellenando el área del trazo. 
+
+
+
+EJEMPLO:
+
+
+
+function draw() {
+
+  var canvas = document.getElementById('canvas');
+
+  if (canvas.getContext){
+
+    var ctx = canvas.getContext('2d');
+
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(75,50);
+
+    ctx.lineTo(100,75);
+
+    ctx.lineTo(100,25);
+
+    ctx.closePath();
+
+    ctx.fill();
+
+  }
+
+}
+
+
+
+
+
+moveTo(x, y)
+
+    Mueve EL OBJETO a las coordenadas específicadas por x e y. 
+
+
+
+*/
