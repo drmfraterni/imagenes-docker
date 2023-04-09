@@ -79,6 +79,27 @@ $ docker exec -ti prueba1 bash
 prueba1=4321
 
 ------------------------------------------------
+COPIAR ARCHIVOS DE LINUX A CONTENEDOR DOCKER
+-------------------------------------------------
+
+docker cp /Users/marko/my_site/web/modules/contrib/search_api_solr/solr-conf/6.x/. container_solr:/opt/solr/server/solr/test_core/conf
+
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS                     PORTS                                       NAMES
+c9f01d672c04   solr:8      "docker-entrypoint.s…"   4 days ago      Up 12 hours                0.0.0.0:8983->8983/tcp, :::8983->8983/tcp   solrdata_solr_1
+f37db7f0ffa0   solr:8      "docker-entrypoint.s…"   4 days ago      Exited (143) 4 days ago                                                solr_demo
+8c2bdf02d37b   wordpress   "docker-entrypoint.s…"   18 months ago   Exited (0) 16 months ago                                               wp
+c9ce46a9d655   mysql:5.7   "docker-entrypoint.s…"   18 months ago   Exited (0) 16 months ago                                               wp-mysql
+
+Examples
+Copy a local file into container
+ docker cp ./some_file CONTAINER:/work
+Copy files from container to local path
+ docker cp CONTAINER:/var/logs/ /tmp/app_logs
+Copy a file from container to stdout. Please note cp command produces a tar stream
+ docker cp CONTAINER:/var/logs/app.log - | tar x -O | grep "ERROR"
+Corner cases
+
+------------------------------------------------
 CONTENEDOR CON LA IMAGEN DE MYSQL OFICIAL
 ------------------------------------------------
 
