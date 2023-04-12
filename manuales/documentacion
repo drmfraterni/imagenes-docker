@@ -597,8 +597,17 @@ c:\xampp\mysql\bin>mysql -u root -p
 Nos pide la confirmación del password.
 la confirmamos y ya estamos dentro de la consola de Mysql.
 
+XAMPP
+Abre la consola con el comando «cmd» y sitúate en la carpeta bin en el directorio de instalación de MySQL, si tienes XAMPP lo tienes en:
+C:\xampp\mysql\bin
+En esta carpeta tienes todas las utilidades, utilizaremos mysql.exe y ejecutaremos el siguiente comando:
+mysql -h localhost -u root nombrebd < C:\rutadel.sql
 
+LARAGON
 SOURCE C:/laragon/www/demo/gestion/bbdd/boulderzsjgs2016.sql
+
+C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin
+$mysql -h localhost -u root cgtaltenfxdrm01 < E:\PROYECTOS\drupalcgt\bbdd\cgtaltenfxdrm01.sql
 
 
 
