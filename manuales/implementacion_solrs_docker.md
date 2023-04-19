@@ -75,11 +75,11 @@ https://www.searchstax.com/docs/searchstax-cloud-drupal-8/
 
 ## ERRORES DE JAVASCRIPT Y CSS 
 
-Example, change uasort($css, 'static::sort') to uasort($css, static::sort(...))
-Example, change uasort($javascript, 'static::sort') to uasort($javascript, static::sort(...))
-Example, change uasort($entities, 'static::sort') to uasort($entities, static::sort(...))
+* Example, change uasort($css, 'static::sort') to uasort($css, static::sort(...))
+* Example, change uasort($javascript, 'static::sort') to uasort($javascript, static::sort(...))
+* Example, change uasort($entities, 'static::sort') to uasort($entities, static::sort(...))
 
-https://www.drupal.org/project/drupal/issues/3335226
+* https://www.drupal.org/project/drupal/issues/3335226
 
 ## FUENTES
 * https://solr.apache.org/guide/solr/latest/deployment-guide/solr-in-docker.html
@@ -130,6 +130,7 @@ $ docker-compose restart servicio
 $ docker-compose stop
 * Para ejecutar docker-compose stop a solo a un servicio. Recordar que es el servicio y no el contenedor por ejemplo servicio traefik, zookeeper, mailhog, etc
 
+~~~
 david@david-VirtualBox:~/proyectos/imagenes-docker/docker4drupal$ docker-compose ps
             Name                           Command                State                     Ports                 
 ------------------------------------------------------------------------------------------------------------------
@@ -143,13 +144,16 @@ docker_drupal10_pma             /docker-entrypoint.sh apac ...   Up         80/t
 docker_drupal10_solr            /entrypoint.sh solr-foreground   Up         8983/tcp                              
 docker_drupal10_traefik         /entrypoint.sh --api.insec ...   Up         0.0.0.0:8000->80/tcp,:::8000->80/tcp  
 docker_drupal10_zookeeper       /docker-entrypoint.sh zkSe ...   Up         2181/tcp, 2888/tcp, 3888/tcp, 8080/tcp
+
 david@david-VirtualBox:~/proyectos/imagenes-docker/docker4drupal$ docker-compose stop traefik
 Stopping docker_drupal10_traefik ... done
+
 david@david-VirtualBox:~/proyectos/imagenes-docker/docker4drupal$ docker-compose stop zookeeper
 Stopping docker_drupal10_zookeeper ... done
+
 david@david-VirtualBox:~/proyectos/imagenes-docker/docker4drupal$ docker-compose stop mailhog
 Stopping docker_drupal10_mailhog ... done
-
+~~~
 
 $ docker-compose stop servicio
 * Iniciar los servicios de docker-compose sin crearlos
